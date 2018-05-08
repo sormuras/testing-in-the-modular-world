@@ -69,6 +69,8 @@ _After living in the material world."_
 
 # This is JUnit 5
 
++++
+
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
 
 +++
@@ -121,10 +123,6 @@ class FirstJUnit5Tests {
 
 +++
 
-### More Core Annotations
-
-+++
-
 ### Meta-Annotations
 
 ```java
@@ -140,6 +138,10 @@ void mySecondTest() {...}
 @[1-2](Multiple tags)
 @[3](Mark as test)
 @[4,8](Use your meta-annotation)
+
+### User Guide
+
+https://junit.org/junit5/docs/current/user-guide/
 
 ---
 
