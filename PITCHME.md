@@ -71,6 +71,11 @@ _After living in the material world."_
 
 +++
 
+![JUnit 5 Architecture](img/junit5-architecture-0.png)
+
+
++++
+
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
 
 +++
