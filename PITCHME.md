@@ -34,9 +34,12 @@ _After living in the material world."_
  
 #### JUnit 5 = ...
 # Platform
+<br>
 
+@ul
 - Foundation for launching testing frameworks
 - Defines and uses `TestEngine` interface
+@ulend
 
 +++
  
