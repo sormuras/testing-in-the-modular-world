@@ -152,9 +152,9 @@ void mySecondTest() {...}
 
 @ul
 
-- Basic Annotations -  `@Test`
-- Meta-Annotations - `@FastSystemTest`
-- Display Names - Emojis! 😎 🐌 (and spaces)
+- Basic Annotations - *`@Test`*
+- Meta-Annotations - *`@FastSystemTest`*
+- Display Names - *Emojis! 😎 🐌* @note[Spaces in names...]
 - Tagging and Filtering
 - Assertions @note[Use external assertion libs. They are good!]
 - Assumptions
@@ -174,10 +174,10 @@ void mySecondTest() {...}
 - Nested Tests
 - Dependency Injection
 - Test Interfaces
-- Repeated Tests
+- Repeated Tests - 🔂
 - Dynamic Tests
 - Test Templates
-- Parameterized Tests
+- Parameterized Tests - ✨
 
 @ulend
 
