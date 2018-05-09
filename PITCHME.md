@@ -18,9 +18,11 @@ _After living in the material world."_
 #### Testing In The Modular World
 ## Overview
 
+@ul
 - Using **JUnit 5** ✅ to launch tests
 - Organized in **Java ☕ Modules** 
 - Foundation tools `javac` and `java`
+@ulend
 
 ---
 
@@ -28,7 +30,7 @@ _After living in the material world."_
 
 +++
 
-## There is no JUnit 5
+## There is **no** JUnit 5
 
 +++
  
@@ -45,28 +47,36 @@ _After living in the material world."_
  
 #### JUnit 5 = Platform + ...
 # Jupiter
+<br>
 
+@ul
 - New programming model for writing tests
 - New extension model for writing extensions
 - `JupiterTestEngine implements TestEngine`
+@ulend
 
 +++
  
 #### JUnit 5 = Platform + Jupiter + ...
 # Vintage
+<br>
 
+@ul
 - Enables running JUnit 3 and JUnit 4 tests
 - `VintageTestEngine implements TestEngine`
+@ulend
 
 +++
 
 #### JUnit 5 = Platform + Jupiter + Vintage + ...
-# Your Testing Framework
+# Your Engine
+<br>
 
-- What is a test? You define it!
-- How is a test evaluated? You define it!
+@ul
+- What is a test? **You define it!**
+- How is a test evaluated? **You define it!**
 - `YourTestEngine implements TestEngine`
-- Get tooling support for granted.
+@ulend
 
 ---
 
@@ -81,34 +91,11 @@ _After living in the material world."_
 
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
 
-+++
-
-#### Jupiter
-
-- First Jupiter Test
-- Annotations |
-- Standard Test Class |
-- Display Names |
-- Assertions |
-- Assumptions |
-- Disabling Tests |
-- Conditional Test Execution |
-- Tagging and Filtering |
-
-+++
-
-#### Jupiter
-
-- Test Instance Lifecycle
-- Nested Tests |
-- Dependency Injection |
-- Test Interfaces |
-- Repeated Tests |
-- Parameterized Tests |
-- Test Templates |
-- Dynamic Tests |
-
 ---
+
+# Jupiter Test Engine
+
++++
 
 ### First Jupiter Test
 
@@ -147,7 +134,42 @@ void mySecondTest() {...}
 @[3](Mark as test)
 @[4,8](Use your meta-annotation)
 
-### User Guide
++++
+
+#### Jupiter Features 1
+<br>
+
+@ul
+- Annotations: `@Test`
+- Display Names
+- Assertions
+- Assumptions
+- Disabling Tests
+- Conditional Test Execution
+- Tagging and Filtering
+@ulend
+
++++
+
+### Jupiter Features 2
+<br>
+
+@ul
+- Test Instance Lifecycle
+- Nested Tests
+- Dependency Injection
+- Test Interfaces
+- Repeated Tests
+- Dynamic Tests
+- Test Templates
+- Parameterized Tests
+@ulend
+
++++
+
+### Jupiter Features 3
+# User Guide
+<br>
 
 https://junit.org/junit5/docs/current/user-guide/
 
