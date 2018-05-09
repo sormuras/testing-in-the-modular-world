@@ -17,11 +17,14 @@ _After living in the material world."_
 
 #### Testing In The Modular World
 ## Overview
+<br>
 
 @ul
+
 - Using **JUnit 5** ✅ to launch tests
-- Organized in **Java ☕ Modules** 
-- Foundation tools `javac` and `java`
+- Organized in **Java Modules** ☕
+- Foundation tools **`javac`** and **`java`**
+
 @ulend
 
 ---
@@ -39,8 +42,10 @@ _After living in the material world."_
 <br>
 
 @ul
+
 - Foundation for launching testing frameworks
 - Defines and uses `TestEngine` interface
+
 @ulend
 
 +++
@@ -50,9 +55,11 @@ _After living in the material world."_
 <br>
 
 @ul
+
 - New programming model for writing tests
 - New extension model for writing extensions
 - `JupiterTestEngine implements TestEngine`
+
 @ulend
 
 +++
@@ -62,8 +69,10 @@ _After living in the material world."_
 <br>
 
 @ul
+
 - Enables running JUnit 3 and JUnit 4 tests
 - `VintageTestEngine implements TestEngine`
+
 @ulend
 
 +++
@@ -73,9 +82,11 @@ _After living in the material world."_
 <br>
 
 @ul
+
 - What is a test? **You define it!**
 - How is a test evaluated? **You define it!**
 - `YourTestEngine implements TestEngine`
+
 @ulend
 
 ---
@@ -132,7 +143,7 @@ void mySecondTest() {...}
 
 @[1-2](Multiple tags)
 @[3](Mark as test)
-@[4,8](Use your meta-annotation)
+@[7-8](Use your meta-annotation)
 
 +++
 
@@ -140,13 +151,16 @@ void mySecondTest() {...}
 <br>
 
 @ul
-- Annotations: `@Test`
-- Display Names
-- Assertions
+
+- Basic Annotations -  `@Test`
+- Meta-Annotations - `@FastSystemTest`
+- Display Names - Emojis! 😎 🐌 (and spaces)
+- Tagging and Filtering
+- Assertions @note[Use external assertion libs. They are good!]
 - Assumptions
 - Disabling Tests
 - Conditional Test Execution
-- Tagging and Filtering
+
 @ulend
 
 +++
@@ -155,6 +169,7 @@ void mySecondTest() {...}
 <br>
 
 @ul
+
 - Test Instance Lifecycle
 - Nested Tests
 - Dependency Injection
@@ -163,6 +178,7 @@ void mySecondTest() {...}
 - Dynamic Tests
 - Test Templates
 - Parameterized Tests
+
 @ulend
 
 +++
@@ -172,6 +188,11 @@ void mySecondTest() {...}
 <br>
 
 https://junit.org/junit5/docs/current/user-guide/
+
+Note:
+The user guide contains the latest documentation and usage examples.
+Most of it explains the Jupiter API and programming model.
+Platform and Vintage are covered, too.
 
 ---
 
@@ -214,6 +235,8 @@ module com.example.tool {
 - + module-info.class
 -   com.example.tool
 -   ~com.example.tool.internal~
+
+---
 
 # Modular World
 
