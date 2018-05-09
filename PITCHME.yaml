@@ -1,5 +1,6 @@
 theme : beige
 layout : center
+footnote : "©2018 Christian Stein @sormuras"
 
 # logo : assets/images/logo.png
 # theme-override : assets/css/PITCHME.css
