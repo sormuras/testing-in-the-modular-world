@@ -143,7 +143,7 @@ void mySecondTest() {...}
 
 @[1-2](Multiple tags)
 @[3](Mark as test)
-@[7-8](Use your meta-annotation)
+@[6-7](Use your meta-annotation)
 
 +++
 
