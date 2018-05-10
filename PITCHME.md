@@ -269,12 +269,14 @@ A module’s data must be able to contain static resource files and user-editabl
 @ul
 
 - Application named **`com.example.application`**
-- contains only **`Main.java`**
+- contains only **`Main`** entry point and
 - uses library called **`com.example.tool`**.
 
 - Libray named **`com.example.tool`**
-- publishes **`Calculator.java`**
-- uses **`MathHelper.java`** internally.
+- publishes **`Calculator`**
+- uses **`MathHelper`** internally.
+
+- Bonus! Own test engine: **`ice.cream`** 🍦🍦🍦
 
 @ulend
 
