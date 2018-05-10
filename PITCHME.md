@@ -264,15 +264,17 @@ A module’s data must be able to contain static resource files and user-editabl
 
 ---
 
-# Example Application
+# Modular Application
 
 @ul
 
 - Application named `com.example.application`
-  - `Main.java`
-- Uses library called `com.example.tool`
-  - published `Calculator.java`
-  - internal `MathHelper.java`
+- contains only `Main.java`
+- uses library called `com.example.tool`.
+
+- Libray named `com.example.tool`
+- publishes `Calculator.java`
+- uses `MathHelper.java` internally.
 
 @ulend
 
@@ -281,31 +283,31 @@ A module’s data must be able to contain static resource files and user-editabl
 #### Main Modules
 ### Sources
 
-```bash
+```txt
 main
-├── com.example.application
+├── 📀 com.example.application
 │   ├── com
 │   │   └── example
 │   │       └── application
-│   │           └── Main.java
-│   └── module-info.java
+│   │           └── ☕ Main.java
+│   └── ☕ module-info.java
 │
-├── com.example.tool
+├── 📀 com.example.tool
 │   ├── com
 │   │   └── example
 │   │       └── tool
-│   │           ├── Calculator.java
+│   │           ├── ☕ Calculator.java
 │   │           └── internal
-│   │               └── MathHelper.java
+│   │               └── ☕ MathHelper.java
 │   └── module-info.java
 │
-└── ice.cream
+└── 📀 ice.cream
     ├── ice
     │   └── cream
-    │       ├── Flavor.java
-    │       ├── Machine.java
-    │       └── Scoop.java
-    └── module-info.java
+    │       ├── ☕ Flavor.java
+    │       ├── ☕ Machine.java
+    │       └── ☕ Scoop.java
+    └── ☕ module-info.java
 ```
 
 @[2-7](`module com.example.application`)
