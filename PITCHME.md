@@ -260,7 +260,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 - Named program component
 - Set of packages (code and data)
-- Module meta-data (module-info.class) @note[]
+- Module meta-data (module descriptor)
 
 +++
 
@@ -270,6 +270,14 @@ A module’s data must be able to contain static resource files and user-editabl
 module com.example.tool {           module com.example.application {
   exports com.example.tool;           requires com.example.tool;
 }                                   }
+```
+
+```java
+module ice.cream {
+	requires org.junit.platform.engine;
+
+	provides org.junit.platform.engine.TestEngine with ice.cream.Machine;
+}
 ```
 
 +++
