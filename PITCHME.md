@@ -299,13 +299,13 @@ main
 │   │           ├── 📜 Calculator.java
 │   │           └── internal
 │   │               └── 📜 MathHelper.java
-│   └── module-info.java
+│   └── ☕ module-info.java
 │
 └──📀 ice.cream
     ├── ice
     │   └── cream
     │       ├── 📜 Flavor.java
-    │       ├── 📜 Machine.java
+    │       ├── 🍦 Machine.java
     │       └── 📜 Scoop.java
     └── ☕ module-info.java
 ```
@@ -320,9 +320,9 @@ main
 ### Descriptors
 
 ```java
-📀 module com.example.tool {           📀 module com.example.application {
-    exports com.example.tool; 📜           requires com.example.tool; 📀
-}                                     }
+📀 module com.example.tool {       📀 module com.example.application {
+    exports com.example.tool; 📜        requires com.example.tool; 📀
+}                                  }
 ```
 
 ```java
@@ -330,7 +330,7 @@ main
 	requires org.junit.platform.engine; 📀
 
 	provides org.junit.platform.engine.TestEngine 📜
-	  with ice.cream.Machine; 📜
+	  with ice.cream.Machine; 🍦
 }
 ```
 
