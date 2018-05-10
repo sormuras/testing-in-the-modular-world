@@ -18,9 +18,9 @@ _After living in the material world."_
 
 +++
 
-@title[Overview]
+@title[Agenda]
 #### Testing In The Modular World
-## Overview
+## Agenda
 <br>
 
 @ul
@@ -28,6 +28,7 @@ _After living in the material world."_
 - Using **JUnit 5** ✅ to launch tests
 - Organized in **Java Modules** ☕
 - Foundation tools **`javac`** and **`java`**
+- Questions and Answers
 
 @ulend
 
@@ -97,11 +98,10 @@ _After living in the material world."_
 
 #### JUnit 5 = Platform + *many engines*
 # 3<sup>rd</sup>-party Engines
-<br>
 
 Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
-<https://github.com/junit-team/junit5/wiki/Third-party-Extensions>
+<small><https://github.com/junit-team/junit5/wiki/Third-party-Extensions></small>
 
 ---
 
@@ -214,46 +214,67 @@ Platform and Vintage are covered, too.
 
 ### Jupiter Features 4
 ## 3<sup>rd</sup>-party Extensions
-<br>
 
 Spring, Mockito, Docker, Wiremock, JPA, Selenium/WebDriver,
 DbUnit, Kafka, Jersey, GreenMail, S3Mock, Citrus Framework,
 XWiki, ...
 
-https://github.com/junit-team/junit5/wiki/Third-party-Extensions
+<small>https://github.com/junit-team/junit5/wiki/Third-party-Extensions</small>
 
 ---
 
-# JPMS
+@title[Java Platform Module System]
+# Java Platform
+# Module System
 
-[Modules] are named, self-describing program components consisting of code and data. A module must be able to contain Java classes and interfaces, as organized into packages, and also native code, in the form of dynamically-loadable libraries. A module’s data must be able to contain static resource files and user-editable configuration files.
-[http://openjdk.java.net/projects/jigsaw/spec/reqs/02#modules]
+- JSR 376 <https://jcp.org/en/jsr/detail?id=376>
+- Jigsaw <http://openjdk.java.net/projects/jigsaw>
 
----
++++
+
+# Goals of JPMS
+
+- Reliable configuration @note[to replace the brittle, error-prone class-path mechanism with a means for program components to declare explicit dependences upon one another]
+- Strong encapsulation @note[to allow a component to declare which of its APIs are accessible by other components, and which are not]
+- A scalable Java SE Platform @note[whose components can be assembled by developers into custom configurations that contain only the functionality actually required by an application]
+- Greater platform integrity @note[to ensure that code that is internal to a platform implementation is not accessible from outside the implementation]
+- Improved performance @note[by applying whole-program optimization techniques to complete configurations of platform, library, and application components]
+
++++ 
 
 # What is a module?
-- Named
+
+_Modules_ are named, self-describing program components consisting of code and data.
+A module must be able to contain Java classes and interfaces, as organized into packages,
+and also native code, in the form of dynamically-loadable libraries.
+A module’s data must be able to contain static resource files and user-editable configuration files.
+<small><http://openjdk.java.net/projects/jigsaw/spec/reqs/#fundamentals></small>
+
+---
+
+# That is a module!
+
+- Named program component
 - Set of packages (code and data)
-- Module Metadata (module-info.class)
+- Module meta-data (module-info.class) @note[]
+
++++
+
+# Module Descriptor
+
+```java
+module com.example.tool {           module com.example.application {
+  exports com.example.tool;           requires com.example.tool;
+}                                   }
+```
 
 +++
 
 # Simple Jar
 
 - `com.example.tool-1.9.jar`
-  - _com.example.tool_ 
-  - _com.example.tool.internal_ 
-
-+++
-
-# Module Descriptor
-
-module-info.java
-```java
-module com.example.tool {
-  exports com.example.tool;
-}
-```
+  - _com.example.tool_
+  - _com.example.tool.internal_
 
 +++
 
