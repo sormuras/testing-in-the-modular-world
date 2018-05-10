@@ -268,7 +268,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 ```java
 module com.example.tool {           module com.example.application {
-  exports com.example.tool;           requires com.example.tool;
+    exports com.example.tool;           requires com.example.tool;
 }                                   }
 ```
 
@@ -276,7 +276,8 @@ module com.example.tool {           module com.example.application {
 module ice.cream {
 	requires org.junit.platform.engine;
 
-	provides org.junit.platform.engine.TestEngine with ice.cream.Machine;
+	provides org.junit.platform.engine.TestEngine
+	  with ice.cream.Machine;
 }
 ```
 
