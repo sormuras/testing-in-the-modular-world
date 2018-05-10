@@ -234,11 +234,15 @@ XWiki, ...
 
 # Goals of JPMS
 
+@ul
+
 - Reliable configuration @note[to replace the brittle, error-prone class-path mechanism with a means for program components to declare explicit dependences upon one another]
 - Strong encapsulation @note[to allow a component to declare which of its APIs are accessible by other components, and which are not]
 - A scalable Java SE Platform @note[whose components can be assembled by developers into custom configurations that contain only the functionality actually required by an application]
 - Greater platform integrity @note[to ensure that code that is internal to a platform implementation is not accessible from outside the implementation]
 - Improved performance @note[by applying whole-program optimization techniques to complete configurations of platform, library, and application components]
+
+@ulend
 
 +++ 
 
