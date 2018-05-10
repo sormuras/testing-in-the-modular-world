@@ -96,7 +96,7 @@ _After living in the material world."_
 +++
 
 #### JUnit 5 = Platform + *many engines*
-# 3rd-party Engines
+# 3<sup>rd</sup>-party Engines
 <br>
 
 Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
@@ -163,7 +163,7 @@ void mySecondTest() {...}
 
 +++
 
-#### Jupiter Features 1
+### Jupiter Features 1
 <br>
 
 @ul
@@ -200,7 +200,7 @@ void mySecondTest() {...}
 +++
 
 ### Jupiter Features 3
-# User Guide
+## User Guide
 <br>
 
 https://junit.org/junit5/docs/current/user-guide
@@ -213,7 +213,7 @@ Platform and Vintage are covered, too.
 +++
 
 ### Jupiter Features 4
-# Third-Party Extensions
+## 3<sup>rd</sup>-party Extensions
 <br>
 
 Spring, Mockito, Docker, Wiremock, JPA, Selenium/WebDriver,
