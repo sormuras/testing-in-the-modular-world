@@ -264,6 +264,41 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
+#### Main Modules
+
+```bash
+main
+├── com.example.application
+│   ├── com
+│   │   └── example
+│   │       └── application
+│   │           └── Main.java
+│   └── module-info.java
+│
+├── com.example.tool
+│   ├── com
+│   │   └── example
+│   │       └── tool
+│   │           ├── Calculator.java
+│   │           └── internal
+│   │               └── MathHelper.java
+│   └── module-info.java
+│
+└── ice.cream
+    ├── ice
+    │   └── cream
+    │       ├── Flavor.java
+    │       ├── Machine.java
+    │       └── Scoop.java
+    └── module-info.java
+```
+
+@[2-7](`module com.example.application`)
+@[9-16](`module com.example.tool`)
+@[18-24](`module ice.cream`)
+
++++
+
 # Module Descriptor
 
 ```java
