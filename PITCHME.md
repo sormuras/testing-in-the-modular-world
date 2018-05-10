@@ -47,8 +47,8 @@ _After living in the material world."_
 
 @ul
 
-- Foundation for launching testing frameworks
-- Defines and uses `TestEngine` interface
+- Foundation for launching test engines
+- Defines and uses **`TestEngine`** interface
 
 @ulend
 
@@ -62,7 +62,7 @@ _After living in the material world."_
 
 - New programming model for writing tests
 - New extension model for writing extensions
-- `JupiterTestEngine implements TestEngine`
+- **`JupiterTestEngine implements TestEngine`**
 
 @ulend
 
@@ -74,8 +74,8 @@ _After living in the material world."_
 
 @ul
 
-- Enables running JUnit 3 and JUnit 4 tests
-- `VintageTestEngine implements TestEngine`
+- Enables running JUnit 3 and 4 tests
+- **`VintageTestEngine implements TestEngine`**
 
 @ulend
 
@@ -89,7 +89,7 @@ _After living in the material world."_
 
 - What is a test? **You define it!**
 - How is a test evaluated? **You define it!**
-- `YourTestEngine implements TestEngine`
+- **`YourTestEngine implements TestEngine`**
 
 @ulend
 
