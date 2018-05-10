@@ -113,7 +113,7 @@ _After living in the material world."_
 ```java
 import org.junit.jupiter.api.*;
 
-class FirstJUnit5Tests {
+class FirstJupiterTests {
 
     @Test
     void myFirstTest() {
@@ -126,6 +126,7 @@ class FirstJUnit5Tests {
 @[1](Import JUnit Jupiter API)
 @[3,6](Use 'package-private' modifier)
 @[5-8](@Test-annotated method, also 'package-private')
+@[1-8]
 
 +++
 
@@ -144,6 +145,7 @@ void mySecondTest() {...}
 @[1-2](Multiple tags)
 @[3](Mark as test)
 @[6-7](Use your meta-annotation)
+@[1-7]
 
 +++
 
