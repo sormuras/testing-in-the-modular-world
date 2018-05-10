@@ -268,13 +268,13 @@ A module’s data must be able to contain static resource files and user-editabl
 
 @ul
 
-- Application named `com.example.application`
-- contains only `Main.java`
-- uses library called `com.example.tool`.
+- Application named **`com.example.application`**
+- contains only **`Main.java`**
+- uses library called **`com.example.tool`**.
 
-- Libray named `com.example.tool`
-- publishes `Calculator.java`
-- uses `MathHelper.java` internally.
+- Libray named **`com.example.tool`**
+- publishes **`Calculator.java`**
+- uses **`MathHelper.java`** internally.
 
 @ulend
 
@@ -285,28 +285,28 @@ A module’s data must be able to contain static resource files and user-editabl
 
 ```txt
 main
-├── 📀 com.example.application
+├──📀 com.example.application
 │   ├── com
 │   │   └── example
 │   │       └── application
-│   │           └── ☕ Main.java
+│   │           └── 📜 Main.java
 │   └── ☕ module-info.java
 │
-├── 📀 com.example.tool
+├──📀 com.example.tool
 │   ├── com
 │   │   └── example
 │   │       └── tool
-│   │           ├── ☕ Calculator.java
+│   │           ├── 📜 Calculator.java
 │   │           └── internal
-│   │               └── ☕ MathHelper.java
+│   │               └── 📜 MathHelper.java
 │   └── module-info.java
 │
-└── 📀 ice.cream
+└──📀 ice.cream
     ├── ice
     │   └── cream
-    │       ├── ☕ Flavor.java
-    │       ├── ☕ Machine.java
-    │       └── ☕ Scoop.java
+    │       ├── 📜 Flavor.java
+    │       ├── 📜 Machine.java
+    │       └── 📜 Scoop.java
     └── ☕ module-info.java
 ```
 
@@ -320,17 +320,17 @@ main
 ### Descriptors
 
 ```java
-module com.example.tool {           module com.example.application {
-    exports com.example.tool;           requires com.example.tool;
-}                                   }
+📀 module com.example.tool {           📀 module com.example.application {
+    exports com.example.tool; 📜           requires com.example.tool; 📀
+}                                     }
 ```
 
 ```java
-module ice.cream {
-	requires org.junit.platform.engine;
+📀 module ice.cream {
+	requires org.junit.platform.engine; 📀
 
-	provides org.junit.platform.engine.TestEngine
-	  with ice.cream.Machine;
+	provides org.junit.platform.engine.TestEngine 📜
+	  with ice.cream.Machine; 📜
 }
 ```
 
