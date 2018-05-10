@@ -254,7 +254,7 @@ and also native code, in the form of dynamically-loadable libraries.
 A module’s data must be able to contain static resource files and user-editable configuration files.
 <small><http://openjdk.java.net/projects/jigsaw/spec/reqs/#fundamentals></small>
 
----
++++
 
 # That is a module!
 
@@ -262,9 +262,24 @@ A module’s data must be able to contain static resource files and user-editabl
 - Set of packages (code and data)
 - Module meta-data (module descriptor)
 
+---
+
+# Example Application
+
+@ul
+
+- Application named `com.example.application`
+  - `Main.java`
+- Uses library called `com.example.tool`
+  - published `Calculator.java`
+  - internal `MathHelper.java`
+
+@ulend
+
 +++
 
 #### Main Modules
+### Sources
 
 ```bash
 main
@@ -299,7 +314,8 @@ main
 
 +++
 
-# Module Descriptor
+#### Main Modules
+### Descriptors
 
 ```java
 module com.example.tool {           module com.example.application {
