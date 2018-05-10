@@ -1,9 +1,12 @@
+@title[Testing In The Modular World]
 # Testing In The
 # Modular World
 
----
++++
 
+@title[Living In The Material World]
 #### Testing In The Modular World
+<br>
 
 _"Can't say what I'm doing here_
 
@@ -15,6 +18,7 @@ _After living in the material world."_
 
 +++
 
+@title[Overview]
 #### Testing In The Modular World
 ## Overview
 <br>
@@ -89,6 +93,16 @@ _After living in the material world."_
 
 @ulend
 
++++
+
+#### JUnit 5 = Platform + *many engines*
+# 3rd-party Engines
+<br>
+
+Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
+
+<https://github.com/junit-team/junit5/wiki/Third-party-Extensions>
+
 ---
 
 # This is JUnit 5
@@ -130,7 +144,7 @@ class FirstJupiterTests {
 
 +++
 
-### Meta-Annotations
+### Composed Annotations
 
 ```java
 @Tag("fast")                     // file: FastSystemTest.java
@@ -189,12 +203,24 @@ void mySecondTest() {...}
 # User Guide
 <br>
 
-https://junit.org/junit5/docs/current/user-guide/
+https://junit.org/junit5/docs/current/user-guide
 
 Note:
 The user guide contains the latest documentation and usage examples.
 Most of it explains the Jupiter API and programming model.
 Platform and Vintage are covered, too.
+
++++
+
+### Jupiter Features 4
+# Third-Party Extensions
+<br>
+
+Spring, Mockito, Docker, Wiremock, JPA, Selenium/WebDriver,
+DbUnit, Kafka, Jersey, GreenMail, S3Mock, Citrus Framework,
+XWiki, ...
+
+https://github.com/junit-team/junit5/wiki/Third-party-Extensions
 
 ---
 
