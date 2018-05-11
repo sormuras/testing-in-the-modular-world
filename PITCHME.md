@@ -379,7 +379,7 @@ contains com.example.tool.internal
 #### Application Module
 
 ```bash
-com.example.application ...com.example.application.jar/!module-info.class
+com.example.application ...application.jar/!module-info.class
 requires com.example.tool
 requires java.base mandated
 contains com.example.application
