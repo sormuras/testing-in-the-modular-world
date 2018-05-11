@@ -344,10 +344,10 @@ module ice.cream {
 #### Main Modules: Compile + Package
 
 ```sh
-javac                             javac
-  -d bin/main                       -d bin/main
-  --module-source-path src/main     --module-source-path src/main
-  --module com.example.tool         --module com.example.application
+javac                            javac
+  -d bin/main                      -d bin/main
+  --module-source-path src/main    --module-source-path src/main
+  --module com.example.tool        --module com.example.application
 ```
 
 ```sh
@@ -364,7 +364,7 @@ jar
 #### Tool Module
 
 ```bash
-com.example.tool .../bin/main-jars/....jar/!module-info.class
+com.example.tool .../bin/main-jars/...tool.jar/!module-info.class
 exports com.example.tool
 requires java.base mandated
 contains com.example.tool.internal
@@ -379,7 +379,7 @@ contains com.example.tool.internal
 #### Application Module
 
 ```bash
-com.example.application .../bin/main-jars/...application.jar/!module-info.class
+com.example.application ...com.example.application.jar/!module-info.class
 requires com.example.tool
 requires java.base mandated
 contains com.example.application
@@ -398,7 +398,7 @@ main-class com.example.application.Main
 ice.cream@47.11 .../bin/main-jars/ice.cream.jar/!module-info.class
 requires java.base mandated
 requires org.junit.platform.engine
-provides org.junit.platform.engine.TestEngine with ice.cream.machine
+provides org.junit.platform.engine.TestEngine with ice.cream.Machine
 contains ice.cream
 
 ```
