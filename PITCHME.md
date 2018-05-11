@@ -326,7 +326,7 @@ main
 
 ```java
 module com.example.tool {          module com.example.application {
-    exports com.example.tool; 📜        requires com.example.tool; 📀
+  exports com.example.tool; 📁       requires com.example.tool; 📀
 }                                  }
 ```
 
@@ -373,6 +373,7 @@ main-class com.example.application.Main
 @[2-3](Dependencies)
 @[4](Package)
 @[5](Entry-point)
+
 ---
 
 # Modular World
