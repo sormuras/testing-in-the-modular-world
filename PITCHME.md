@@ -224,7 +224,7 @@ XWiki, ...
 ---
 
 @title[Java Platform Module System]
-# Java ~~Platform~~
+# Java Platform
 # Module System
 
 - JSR 376 <https://jcp.org/en/jsr/detail?id=376>
@@ -236,12 +236,13 @@ It’s just “the Java module system.” #jigsaw #jdk9 #java
 
 +++
 
-# Goals of JPMS
+### Goals of the ~~JPMS~~
+## Java Module System
 
 @ul
 
 - Reliable configuration @note[to replace the brittle, error-prone class-path mechanism with a means for program components to declare explicit dependences upon one another]
-- Strong encapsulation @note[to allow a component to declare which of its APIs are accessible by other components, and which are not]
+- **Strong** encapsulation @note[to allow a component to declare which of its APIs are accessible by other components, and which are not]
 - A scalable Java SE Platform @note[whose components can be assembled by developers into custom configurations that contain only the functionality actually required by an application]
 - Greater platform integrity @note[to ensure that code that is internal to a platform implementation is not accessible from outside the implementation]
 - Improved performance @note[by applying whole-program optimization techniques to complete configurations of platform, library, and application components]
@@ -274,11 +275,11 @@ A module’s data must be able to contain static resource files and user-editabl
 
 - Application named **`com.example.application`**
 - contains only **`Main`** entry point and
-- uses library called **`com.example.tool`**.
+- uses library called **`com.example.tool`**.<br>
 
 - Libray named **`com.example.tool`**
 - publishes **`Calculator`**
-- uses **`MathHelper`** internally.
+- uses **`MathHelper`** internally.<br>
 
 - Bonus! Own test engine: **`ice.cream`** 🍦🍦🍦
 
@@ -334,27 +335,44 @@ module ice.cream {
 	requires org.junit.platform.engine; 📀
 
 	provides org.junit.platform.engine.TestEngine 📜
-	  with ice.cream.Machine; 🍦
+	    with ice.cream.Machine; 🍦
 }
 ```
 
 +++
 
-# Simple Jar
+#### Main Modules: Compile + Package
 
-- `com.example.tool-1.9.jar`
-  - _com.example.tool_
-  - _com.example.tool.internal_
+```sh
+javac                               javac
+    -d bin/main                         -d bin/main
+    --module-source-path src/main       --module-source-path src/main
+    --module com.example.tool           --module com.example.application
+```
+
+```sh
+jar
+    --create
+    --file bin/main-jars/com.example.application.jar
+    --main-class com.example.application.Main
+    -C bin/main/com.example.application .
+```
 
 +++
 
-# Modular Jar
+#### Main Modules: Describe
 
-- com.example.tool.jar
-- + module-info.class
--   com.example.tool
--   ~com.example.tool.internal~
-
+```bash
+com.example.application .../bin/main-jars/...application.jar/!module-info.class
+requires com.example.tool
+requires java.base mandated
+contains com.example.application
+main-class com.example.application.Main
+```
+@[1](Module name and archive)
+@[2-3](Dependencies)
+@[4](Package)
+@[5](Entry-point)
 ---
 
 # Modular World

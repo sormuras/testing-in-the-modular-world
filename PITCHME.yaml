@@ -1,9 +1,9 @@
-theme : beige
+# theme : beige # don't fix it
 layout : center
 footnote : "testing-in-the-modular-world // ©2018 Christian Stein // @sormuras"
 
-# logo : assets/images/logo.png
-# theme-override : assets/css/PITCHME.css
+# logo : img/logo.png
+# theme-override : PITCHME.css
 # transition : none
 # highlight : ir-black
 # charts : true
