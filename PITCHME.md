@@ -224,11 +224,15 @@ XWiki, ...
 ---
 
 @title[Java Platform Module System]
-# Java Platform
+# Java ~~Platform~~
 # Module System
 
 - JSR 376 <https://jcp.org/en/jsr/detail?id=376>
 - Jigsaw <http://openjdk.java.net/projects/jigsaw>
+
+Note: https://twitter.com/mreinhold/status/994669659029999616
+Please stop calling it "JPMS", which sounds like an unpleasant medical condition.
+It’s just “the Java module system.” #jigsaw #jdk9 #java
 
 +++
 
@@ -282,8 +286,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
-#### Main Modules
-### Sources
+#### Main Modules: `tree src/main`
 
 ```txt
 main
@@ -318,17 +321,16 @@ main
 
 +++
 
-#### Main Modules
-### Descriptors
+#### Main Modules: `module-info.java`
 
 ```java
-📀 module com.example.tool {       📀 module com.example.application {
+module com.example.tool {          module com.example.application {
     exports com.example.tool; 📜        requires com.example.tool; 📀
 }                                  }
 ```
 
 ```java
-📀 module ice.cream {
+module ice.cream {
 	requires org.junit.platform.engine; 📀
 
 	provides org.junit.platform.engine.TestEngine 📜
