@@ -344,23 +344,39 @@ module ice.cream {
 #### Main Modules: Compile + Package
 
 ```sh
-javac                               javac
-    -d bin/main                         -d bin/main
-    --module-source-path src/main       --module-source-path src/main
-    --module com.example.tool           --module com.example.application
+javac                             javac
+  -d bin/main                       -d bin/main
+  --module-source-path src/main     --module-source-path src/main
+  --module com.example.tool         --module com.example.application
 ```
 
 ```sh
 jar
-    --create
-    --file bin/main-jars/com.example.application.jar
-    --main-class com.example.application.Main
-    -C bin/main/com.example.application .
+  --create
+  --file       bin/main-jars/com.example.application.jar
+  --main-class com.example.application.Main
+  -C           bin/main/com.example.application
+  .
 ```
 
 +++
 
-#### Main Modules: Describe
+#### Tool Module
+
+```bash
+com.example.tool .../bin/main-jars/....jar/!module-info.class
+exports com.example.tool
+requires java.base mandated
+contains com.example.tool.internal
+```
+@[1](Module name and archive file)
+@[2](Published package)
+@[3](Dependency)
+@[4](Non-published package)
+
++++
+
+#### Application Module
 
 ```bash
 com.example.application .../bin/main-jars/...application.jar/!module-info.class
@@ -369,10 +385,27 @@ requires java.base mandated
 contains com.example.application
 main-class com.example.application.Main
 ```
-@[1](Module name and archive)
+@[1](Module name and archive file)
 @[2-3](Dependencies)
-@[4](Package)
+@[4](Non-published package)
 @[5](Entry-point)
+
++++
+
+#### Ice.Cream Module
+
+```bash
+ice.cream@47.11 .../bin/main-jars/ice.cream.jar/!module-info.class
+requires java.base mandated
+requires org.junit.platform.engine
+provides org.junit.platform.engine.TestEngine with ice.cream.machine
+contains ice.cream
+
+```
+@[1](Module name, version and archive file)
+@[2-3](Dependencies)
+@[4](Service)
+@[5](Non-published package)
 
 ---
 
