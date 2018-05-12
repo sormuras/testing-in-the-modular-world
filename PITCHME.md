@@ -384,7 +384,7 @@ jar
 
 #### Tool Module
 
-`jar --describe-module --file bin/main-jars/com.example.tool.jar`
+<small>`jar --describe-module --file bin/main-jars/com.example.tool.jar`</small>
 
 ```bash
 com.example.tool .../bin/main-jars/...tool.jar/!module-info.class
@@ -402,6 +402,8 @@ contains com.example.tool.internal
 
 #### Application Module
 
+<small>`jar --describe-module --file bin/main-jars/com.example.application.jar`</small>
+
 ```bash
 com.example.application ...application.jar/!module-info.class
 requires com.example.tool
@@ -418,6 +420,8 @@ main-class com.example.application.Main
 +++
 
 #### Ice Cream 🍦 Module
+
+<small>`jar --describe-module --file bin/main-jars/ice.cream.jar`</small>
 
 ```bash
 ice.cream@47.11 .../bin/main-jars/ice.cream.jar/!module-info.class
