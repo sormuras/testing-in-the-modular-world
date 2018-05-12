@@ -136,7 +136,6 @@ class FirstJupiterTests {
 
 }
 ```
-
 @[1](Import JUnit Jupiter API)
 @[3,6](Use 'package-private' modifier)
 @[5-8](@Test-annotated method, also 'package-private')
@@ -155,7 +154,6 @@ class FirstJupiterTests {
 @FastSystemTest                  // file: FirstJupiterTests.java
 void mySecondTest() {...} 
 ```
-
 @[1-2](Multiple tags)
 @[3](Mark as test)
 @[6-7](Use your meta-annotation)
@@ -315,7 +313,6 @@ main
     │       └── 📜 Scoop.java
     └── ☕ module-info.java
 ```
-
 @[2-7](`module com.example.application`)
 @[9-16](`module com.example.tool`)
 @[18-24](`module ice.cream`)
@@ -349,6 +346,11 @@ javac                            javac
   --module-source-path src/main    --module-source-path src/main
   --module com.example.tool        --module com.example.application
 ```
+@[1](Compiles Java source files into class files.)
+@[2](Sets the destination directory for class files.)
+@[3](Specifies where to find input source files for multiple modules.)
+@[4](Compiles only the specified module and checks time stamps.)
+@[1-4]
 
 ```sh
 jar
@@ -358,6 +360,12 @@ jar
   -C           bin/main/com.example.application
   .
 ```
+@[1](Archiving and compression tool.)
+@[2](Creates the archive.)
+@[3](Specifies the archive file name.)
+@[4](Specifies the application entry point for standalone applications bundled into a modular or executable modular JAR file.)
+@[5-6](Changes the specified directory and includes the files specified at the end of the command line.)
+@[1-6]
 
 +++
 
@@ -373,6 +381,7 @@ contains com.example.tool.internal
 @[2](Published package)
 @[3](Dependency)
 @[4](Non-published package)
+@[1-4]
 
 +++
 
@@ -389,10 +398,11 @@ main-class com.example.application.Main
 @[2-3](Dependencies)
 @[4](Non-published package)
 @[5](Entry-point)
+@[1-5]
 
 +++
 
-#### Ice.Cream Module
+#### Ice Cream 🍦 Module
 
 ```bash
 ice.cream@47.11 .../bin/main-jars/ice.cream.jar/!module-info.class
@@ -400,12 +410,12 @@ requires java.base mandated
 requires org.junit.platform.engine
 provides org.junit.platform.engine.TestEngine with ice.cream.Machine
 contains ice.cream
-
 ```
 @[1](Module name, version and archive file)
 @[2-3](Dependencies)
 @[4](Service)
 @[5](Non-published package)
+@[1-5]
 
 ---
 
