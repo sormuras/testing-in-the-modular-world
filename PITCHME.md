@@ -335,7 +335,7 @@ module ice.cream {
 	    with ice.cream.Machine; 🍦
 }
 ```
-<https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7>
+<small><https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7></small>
 
 +++
 
