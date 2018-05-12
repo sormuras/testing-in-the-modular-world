@@ -335,6 +335,7 @@ module ice.cream {
 	    with ice.cream.Machine; 🍦
 }
 ```
+<https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7>
 
 +++
 
@@ -420,14 +421,15 @@ main-class com.example.application.Main
 ice.cream@47.11 .../bin/main-jars/ice.cream.jar/!module-info.class
 requires java.base mandated
 requires org.junit.platform.engine
-provides org.junit.platform.engine.TestEngine with ice.cream.Machine
+provides org.junit.platform.engine.TestEngine
+    with ice.cream.Machine
 contains ice.cream
 ```
 @[1](Module name, version and archive file)
 @[2-3](Dependencies)
-@[4](Service)
-@[5](Non-published package)
-@[1-5]
+@[4-5](Service)
+@[6](Non-published package)
+@[1-6]
 
 ---
 
