@@ -2,10 +2,12 @@
 # Testing In The
 # Modular World
 
+Note: Привет! Welcome!
+
 +++
 
 @title[Living In The Material World]
-#### Testing In The Modular World
+#### Living In The Material World
 <br>
 
 _"Can't say what I'm doing here_
@@ -18,6 +20,22 @@ _After living in the material world."_
 
 +++
 
+@title[Testing In The Modular World]
+#### Testing In The Modular World
+<br>
+
+_"Will tell what I'm doing here_
+
+_And I hope you see much clearer,_
+
+_After testing in the modular world."_
+
+<https://github.com/junit-team/junit5-samples>
+
+**junit5-modular-world**
+
++++
+
 @title[Agenda]
 #### Testing In The Modular World
 ## Agenda
@@ -27,7 +45,7 @@ _After living in the material world."_
 
 - Using **JUnit 5** ✅ to launch tests
 - Organized in **Java Modules** ☕
-- Foundation tools **`javac`** and **`java`**
+- Foundation tools **`javac`**, **`jar`** and **`java`**
 - Questions and Answers
 
 @ulend
@@ -259,7 +277,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
-# That is a module!
+# This is a module
 
 - Named program component
 - Set of packages (code and data)
@@ -267,19 +285,18 @@ A module’s data must be able to contain static resource files and user-editabl
 
 ---
 
-# Modular Application
+# Modular Project
 
 @ul
 
 - Application named **`com.example.application`**
-- contains only **`Main`** entry point and
-- uses library called **`com.example.tool`**.<br>
+- contains only **`Main`** entry point and uses...
 
-- Libray named **`com.example.tool`**
+- Library named **`com.example.tool`**
 - publishes **`Calculator`**
 - uses **`MathHelper`** internally.<br>
 
-- Bonus! Own test engine: **`ice.cream`** 🍦🍦🍦
+- Bonus! **`ice.cream`** 🍦🍦🍦 test engine
 
 @ulend
 
