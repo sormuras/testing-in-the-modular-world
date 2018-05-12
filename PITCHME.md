@@ -384,6 +384,8 @@ jar
 
 #### Tool Module
 
+`jar --describe-module --file bin/main-jars/com.example.tool.jar`
+
 ```bash
 com.example.tool .../bin/main-jars/...tool.jar/!module-info.class
 exports com.example.tool
