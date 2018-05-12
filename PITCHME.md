@@ -402,7 +402,7 @@ contains com.example.tool.internal
 
 #### Application Module
 
-<small>`jar --describe-module --file bin/main-jars/com.example.application.jar`</small>
+<small>`jar --describe-module --file .../com.example.application.jar`</small>
 
 ```bash
 com.example.application ...application.jar/!module-info.class
