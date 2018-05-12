@@ -338,7 +338,7 @@ module ice.cream {
 
 +++
 
-#### Main Modules: Compile + Package
+#### Main Modules: Compile
 
 ```sh
 javac                            javac
@@ -351,6 +351,12 @@ javac                            javac
 @[3](Specifies where to find input source files for multiple modules.)
 @[4](Compiles only the specified module and checks time stamps.)
 @[1-4]
+
+Note: Analogue command for the ice.cream module
+
++++
+
+#### Main Modules: Package
 
 ```sh
 jar
@@ -366,6 +372,12 @@ jar
 @[4](Specifies the application entry point for standalone applications bundled into a modular or executable modular JAR file.)
 @[5-6](Changes the specified directory and includes the files specified at the end of the command line.)
 @[1-6]
+
++++
+
+#### Main Binaries
+
+![bin/main](img/screenshot-bin.png)
 
 +++
 
