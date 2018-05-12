@@ -313,7 +313,7 @@ main
 │   │           └── 📜 Main.java
 │   └── ☕ module-info.java
 │
-├──📀 com.example.tool
+├──🔨 com.example.tool
 │   ├── com
 │   │   └── example
 │   │       └── tool
@@ -322,7 +322,7 @@ main
 │   │               └── 📜 MathHelper.java
 │   └── ☕ module-info.java
 │
-└──📀 ice.cream
+└──🍦 ice.cream
     ├── ice
     │   └── cream
     │       ├── 📜 Flavor.java
@@ -340,13 +340,13 @@ main
 
 ```java
 module com.example.tool {          module com.example.application {
-  exports com.example.tool; 📁       requires com.example.tool; 📀
+  exports com.example.tool; 📁       requires com.example.tool; 🔨
 }                                  }
 ```
 
 ```java
 module ice.cream {
-	requires org.junit.platform.engine; 📀
+	requires org.junit.platform.engine; Ⓜ
 
 	provides org.junit.platform.engine.TestEngine 📜
 	    with ice.cream.Machine; 🍦
@@ -399,7 +399,7 @@ jar
 
 +++
 
-#### Tool Module
+#### Tool Module 🔨
 
 <small>`jar --describe-module --file bin/main-jars/com.example.tool.jar`</small>
 
@@ -417,7 +417,7 @@ contains com.example.tool.internal
 
 +++
 
-#### Application Module
+#### Application Module 📀
 
 <small>`jar --describe-module --file .../com.example.application.jar`</small>
 
@@ -436,7 +436,7 @@ main-class com.example.application.Main
 
 +++
 
-#### Ice Cream 🍦 Module
+#### Ice Cream Module 🍦
 
 <small>`jar --describe-module --file bin/main-jars/ice.cream.jar`</small>
 
