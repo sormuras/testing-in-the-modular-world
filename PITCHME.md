@@ -148,8 +148,8 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 ```java
 var request = LauncherDiscoveryRequestBuilder.request()
     .selectors(
-        selectPackage("com.example.integration"),
-        selectClass(MyTestClass.class),
+        selectPackage("example"),
+        selectClass(StandardTests.class),
         selectModule("com.example.tool")
     )
     .filters(
@@ -188,10 +188,6 @@ Discovery takes place across all participating test engines.
       └─ 😱 ✔
 
 Test run finished after 64 ms
-...
-[         6 tests found           ]
-...
-[         0 tests failed          ]
 ```
 
 Note:
