@@ -58,6 +58,13 @@ _After testing in the modular world."_
 
 ## There is **no** JUnit 5
 
+Note:
+Not a single artifact.
+
++++
+
+![JUnit 5 Architecture](img/junit5-architecture-0.png)
+
 +++
  
 #### JUnit 5 = ...
@@ -125,18 +132,76 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 # This is JUnit 5
 
-+++
-
-![JUnit 5 Architecture](img/junit5-architecture-0.png)
-
-
-+++
-
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
+
++++
+
+### JUnit Platform
+# Launcher
+
++++
+
+### Launcher API
+
+```java
+var request = LauncherDiscoveryRequestBuilder.request()
+    .selectors(
+        selectPackage("com.example.integration"),
+        selectClass(MyTestClass.class),
+        selectModule("com.example.tool")
+    )
+    .filters(
+        includeClassNamePatterns(".*Tests")
+    )
+    .build();
+
+var launcher = LauncherFactory.create();
+launcher.execute(request);
+```
+@[1](Build request...)
+@[2-6](Select some resources)
+@[7-9](Apply filters)
+@[12-13](Execute test plan)
+
+Note:
+There’s currently the possibility to select classes, methods, and all classes
+in a package or even search for all tests in the classpath.
+Discovery takes place across all participating test engines.
+
++++
+
+### Console Launcher
+
+```text
+├─ JUnit Vintage
+│  └─ example.JUnit4Tests
+│     └─ standardJUnit4Test ✔
+└─ JUnit Jupiter
+   ├─ StandardTests
+   │  ├─ succeedingTest() ✔
+   │  └─ skippedTest() ↷ for demonstration purposes
+   └─ A special test case
+      ├─ Custom test name containing spaces ✔
+      ├─ ╯°□°）╯ ✔
+      └─ 😱 ✔
+
+Test run finished after 64 ms
+...
+[         6 tests found           ]
+...
+[         0 tests failed          ]
+```
+
+Note:
+The ConsoleLauncher is a command-line Java application that lets you launch
+the JUnit Platform from the console.
+For example, it can be used to run Vintage and Jupiter tests
+and print test execution results to the console.
 
 ---
 
-# Jupiter Test Engine
+### Test Engine
+# Jupiter
 
 +++
 
@@ -289,14 +354,14 @@ A module’s data must be able to contain static resource files and user-editabl
 
 @ul
 
-- Application named **`com.example.application`**
+- Application named 📀 **`com.example.application`**
 - contains only **`Main`** entry point and uses...
 
-- Library named **`com.example.tool`**
+- Library named 🔨 **`com.example.tool`**
 - publishes **`Calculator`**
-- uses **`MathHelper`** internally.<br>
-
-- Bonus! **`ice.cream`** 🍦🍦🍦 test engine
+- uses **`MathHelper`** internally.
+<br>
+- Bonus! 🍦 **`ice.cream`** test engine
 
 @ulend
 
