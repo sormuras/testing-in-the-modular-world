@@ -368,7 +368,6 @@ A module’s data must be able to contain static resource files and user-editabl
 #### Main Modules: `tree src/main`
 
 ```txt
-main
 ├──📀 com.example.application
 │   ├── com
 │   │   └── example
@@ -393,9 +392,9 @@ main
     │       └── 📜 Scoop.java
     └── ☕ module-info.java
 ```
-@[2-7](`module com.example.application`)
-@[9-16](`module com.example.tool`)
-@[18-24](`module ice.cream`)
+@[1-6](`module com.example.application`)
+@[8-15](`module com.example.tool`)
+@[17-23](`module ice.cream`)
 
 +++
 
@@ -519,6 +518,52 @@ contains ice.cream
 
 ---
 
+# Testing In The
 # Modular World
 
-https://github.com/junit-team/junit5-samples/blob/master/README.md
++++
+
+#### Test Modules: `tree src/test`
+
+```txt
+├──🔲 black.box
+│   ├── black
+│   │   └── box
+│   │       ├── 📜 BlackBoxTests.java // Jupiter
+│   │       ├── 📜 GoodOldTest.java   // JUnit 4
+│   │       └── 📜 JQwikTests.java    // jqwik
+│   └── ☕ module-info.java
+│
+├──📀 com.example.application
+│   ├── com
+│   │   └── example
+│   │       └── application
+│   │           └── 📜 MainTests.java
+│   └── ☕ module-info.java
+│
+├──🔨 com.example.tool
+│   ├── com
+│   │   └── example
+│   │       └── tool
+│   │           ├── 📜 CalculatorTests.java
+│   │           └── internal
+│   │               └── 📜 MathHelperTests.java
+│   └── ☕ module-info.java
+│
+└──🍦 ice.cream
+    ├── ice
+    │   └── cream
+    │       ├── 📜 FlavorTests.java
+    │       ├── 🍦 MachineTests.java
+    │       └── 📜 ScoopTests.java
+    └── ☕ module-info.java
+```
+@[1-7](`module black.box`)
+@[9-14](`module com.example.application`)
+@[16-23](`module com.example.tool`)
+@[25-31](`module ice.cream`)
+
+---
+
+# Thank You
+#### Do you see much clearer? 
