@@ -132,6 +132,8 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 # This is JUnit 5
 
++++
+
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
 
 +++
