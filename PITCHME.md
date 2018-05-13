@@ -677,11 +677,108 @@ Patching test binaries into main modules at runtime
 
 +++
 
-### `--class-path` compilation
+```text
+javac
+        -d
+          bin/test-patch-runtime/com.example.application
+        --class-path
+          bin/main-jars/com.example.tool.jar
+          bin/main-jars/com.example.application.jar
+          bin/main-jars/ice.cream.jar
+          lib/junit-platform-commons-1.2.0.jar
+          lib/junit-platform-console-1.2.0.jar
+          lib/junit-platform-engine-1.2.0.jar
+          lib/junit-platform-launcher-1.2.0.jar
+          lib/junit-jupiter-api-5.2.0.jar
+          lib/junit-jupiter-params-5.2.0.jar
+          lib/junit-jupiter-engine-5.2.0.jar
+          lib/junit-vintage-engine-5.2.0.jar
+          lib/junit-4.12.jar
+          lib/hamcrest-core-1.3.jar
+          lib/apiguardian-api-1.0.0.jar
+          lib/opentest4j-1.1.0.jar
+          lib/jqwik-0.8.10.jar
+        src/test/com.example.application/com/example/application/MainTests.java
+
+javac
+        -d
+          bin/test-patch-runtime/com.example.tool
+        --class-path
+          bin/main-jars/com.example.tool.jar
+          bin/main-jars/com.example.application.jar
+          bin/main-jars/ice.cream.jar
+          lib/junit-platform-commons-1.2.0.jar
+          lib/junit-platform-console-1.2.0.jar
+          lib/junit-platform-engine-1.2.0.jar
+          lib/junit-platform-launcher-1.2.0.jar
+          lib/junit-jupiter-api-5.2.0.jar
+          lib/junit-jupiter-params-5.2.0.jar
+          lib/junit-jupiter-engine-5.2.0.jar
+          lib/junit-vintage-engine-5.2.0.jar
+          lib/junit-4.12.jar
+          lib/hamcrest-core-1.3.jar
+          lib/apiguardian-api-1.0.0.jar
+          lib/opentest4j-1.1.0.jar
+          lib/jqwik-0.8.10.jar
+        src/test/com.example.tool/com/example/tool/CalculatorTests.java
+        src/test/com.example.tool/com/example/tool/internal/MathHelperTests.java
+
+javac
+        -d
+          bin/test-patch-runtime/ice.cream
+        --class-path
+          bin/main-jars/com.example.tool.jar
+          bin/main-jars/com.example.application.jar
+          bin/main-jars/ice.cream.jar
+          lib/junit-platform-commons-1.2.0.jar
+          lib/junit-platform-console-1.2.0.jar
+          lib/junit-platform-engine-1.2.0.jar
+          lib/junit-platform-launcher-1.2.0.jar
+          lib/junit-jupiter-api-5.2.0.jar
+          lib/junit-jupiter-params-5.2.0.jar
+          lib/junit-jupiter-engine-5.2.0.jar
+          lib/junit-vintage-engine-5.2.0.jar
+          lib/junit-4.12.jar
+          lib/hamcrest-core-1.3.jar
+          lib/apiguardian-api-1.0.0.jar
+          lib/opentest4j-1.1.0.jar
+          lib/jqwik-0.8.10.jar
+        src/test/ice.cream/ice/cream/FlavorTests.java
+        src/test/ice.cream/ice/cream/MachineTests.java
+```
 
 +++
 
-### `--class-path` compilation
+```text
+java
+    --module-path
+      bin/main-jars:lib:bin/test-patch-compile/black.box
+    --add-modules
+      ALL-MODULE-PATH,ALL-DEFAULT
+    --patch-module
+      com.example.application=bin/test-patch-runtime/com.example.application
+    --patch-module
+      com.example.tool=bin/test-patch-runtime/com.example.tool
+    --patch-module
+      ice.cream=bin/test-patch-runtime/ice.cream
+    --add-opens
+      com.example.application/com.example.application=org.junit.platform.commons
+    --add-opens
+      com.example.tool/com.example.tool=org.junit.platform.commons
+    --add-opens
+      com.example.tool/com.example.tool.internal=org.junit.platform.commons
+    --add-opens
+      ice.cream/ice.cream=org.junit.platform.commons
+    --add-reads
+      com.example.application=org.junit.jupiter.api
+    --add-reads
+      com.example.tool=org.junit.jupiter.api
+    --module
+      org.junit.platform.console
+    --reports-dir
+      bin/test-patch-runtime-results/junit-platform
+    --scan-modules
+```
 
 ---
 
@@ -722,6 +819,51 @@ open module com.example.tool {
 @[1](`module com.example.tool` with `open` qualifier)
 @[2](Copied elements from `main` module descriptor)
 @[4-5](Test framework APIs)
+
++++
+
+```text
+javac
+    -d
+      bin/test-patch-compile
+    --module-path
+      bin/main-jars:lib
+    --patch-module
+      com.example.application=src/main/com.example.application
+    --patch-module
+      com.example.tool=src/main/com.example.tool
+    --patch-module
+      ice.cream=src/main/ice.cream
+    --module-source-path
+      src/test
+    src/test/black.box/black/box/BlackBoxTests.java
+    src/test/black.box/black/box/GoodOldTest.java
+    src/test/black.box/black/box/JQwikTests.java
+    src/test/black.box/module-info.java
+    src/test/com.example.application/com/example/application/MainTests.java
+    src/test/com.example.application/module-info.java
+    src/test/com.example.tool/com/example/tool/CalculatorTests.java
+    src/test/com.example.tool/com/example/tool/internal/MathHelperTests.java
+    src/test/com.example.tool/module-info.java
+    src/test/ice.cream/ice/cream/FlavorTests.java
+    src/test/ice.cream/ice/cream/MachineTests.java
+    src/test/ice.cream/module-info.java
+```
+
++++
+
+```text
+java
+    --module-path
+      bin/test-patch-compile:bin/main-jars:lib
+    --add-modules
+      ALL-MODULE-PATH,ALL-DEFAULT
+    --module
+      org.junit.platform.console
+    --reports-dir
+      bin/test-patch-compile-results/junit-platform
+    --scan-modules
+```
 
 ---
 
