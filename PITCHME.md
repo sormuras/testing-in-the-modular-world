@@ -365,7 +365,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
-#### Main Modules: `tree src/main`
+#### `tree src/main`
 
 ```txt
 ├──📀 com.example.application
@@ -523,45 +523,205 @@ contains ice.cream
 
 +++
 
-#### Test Modules: `tree src/test`
+### Goals
+<br>
+
+@ul
+
+- Module API "black-box" tests
+- Module internal "white-box" tests
+- Run multiple engines
+
+@ulend
+
++++
+
+#### `tree src/test`
 
 ```txt
 ├──🔲 black.box
 │   ├── black
 │   │   └── box
-│   │       ├── 📜 BlackBoxTests.java // Jupiter
-│   │       ├── 📜 GoodOldTest.java   // JUnit 4
-│   │       └── 📜 JQwikTests.java    // jqwik
+│   │       ├── 📃 BlackBoxTests.java // Jupiter
+│   │       ├── 📃 GoodOldTest.java   // JUnit 4
+│   │       └── 📃 JQwikTests.java    // jqwik
 │   └── ☕ module-info.java
 │
 ├──📀 com.example.application
 │   ├── com
 │   │   └── example
 │   │       └── application
-│   │           └── 📜 MainTests.java
+│   │           └── 📃 MainTests.java
 │   └── ☕ module-info.java
 │
 ├──🔨 com.example.tool
 │   ├── com
 │   │   └── example
 │   │       └── tool
-│   │           ├── 📜 CalculatorTests.java
+│   │           ├── 📃 CalculatorTests.java
 │   │           └── internal
-│   │               └── 📜 MathHelperTests.java
+│   │               └── 📃 MathHelperTests.java
 │   └── ☕ module-info.java
 │
 └──🍦 ice.cream
     ├── ice
     │   └── cream
-    │       ├── 📜 FlavorTests.java
-    │       ├── 🍦 MachineTests.java
-    │       └── 📜 ScoopTests.java
+    │       ├── 📃 FlavorTests.java
+    │       ├── 📃 MachineTests.java
+    │       └── 📃 ScoopTests.java
     └── ☕ module-info.java
 ```
 @[1-7](`module black.box`)
 @[9-14](`module com.example.application`)
 @[16-23](`module com.example.tool`)
 @[25-31](`module ice.cream`)
+
+---
+
+# 
+
+Resorting to the `--class-path`
+
++++
+
+### `--class-path` compilation
+
+```text
+javac
+    -d
+      bin/test-classpath
+    --class-path
+      bin/main-jars/com.example.tool.jar
+      bin/main-jars/com.example.application.jar
+      bin/main-jars/ice.cream.jar
+      lib/junit-platform-commons-1.2.0.jar
+      lib/junit-platform-console-1.2.0.jar
+      lib/junit-platform-engine-1.2.0.jar
+      lib/junit-platform-launcher-1.2.0.jar
+      lib/junit-jupiter-api-5.2.0.jar
+      lib/junit-jupiter-params-5.2.0.jar
+      lib/junit-jupiter-engine-5.2.0.jar
+      lib/junit-vintage-engine-5.2.0.jar
+      lib/junit-4.12.jar
+      lib/hamcrest-core-1.3.jar
+      lib/apiguardian-api-1.0.0.jar
+      lib/opentest4j-1.1.0.jar
+      lib/jqwik-0.8.10.jar
+    src/test/black.box/black/box/BlackBoxTests.java
+    src/test/black.box/black/box/GoodOldTest.java
+    src/test/black.box/black/box/JQwikTests.java
+    src/test/com.example.application/com/example/application/MainTests.java
+    src/test/com.example.tool/com/example/tool/CalculatorTests.java
+    src/test/com.example.tool/com/example/tool/internal/MathHelperTests.java
+    src/test/ice.cream/ice/cream/FlavorTests.java
+    src/test/ice.cream/ice/cream/MachineTests.java
+```
+@[2-3](Destination directory)
+@[5-7](Main Java archives)
+@[8-20](3rd-party Jars)
+@[21-28](Test source files)
+
++++
+
+### `--class-path` launch
+
+```text
+java
+    --class-path
+      bin/test-classpath : bin/main-jars/* : lib/*
+
+    org.junit.platform.console.ConsoleLauncher
+
+    --reports-dir
+      bin/test-classpath-results/junit-platform
+    --scan-class-path
+```
+@[2-3](All parts we need launch the test plan)
+@[5](`ConsoleLauncher` Main-Class)
+@[7-9](`ConsoleLauncher` options)
+
++++
+
+### `--class-path` results
+
+```text
+╷
+├─ JUnit Jupiter ✔
+│  ├─ black.box/black.box.BlackBoxTests ✔
+│  │  ├─ moduleName() ■ Assumption failed: Calculator resides in a named module
+│  │  ├─ add(RepetitionInfo) ✔
+│  │  │  ├─ 1 + 5 ✔
+│  │  │  ├─ 2 + 5 ✔
+[...]
+├─ JUnit Vintage ✔
+│  └─ black.box.GoodOldTest ✔
+│     └─ eighteenEqualsNineAndNine ✔
+└─ JQwik Test Engine ✔
+   └─ JQwikTests ✔
+      ├─ exampleFor1And3Equals4 ✔
+      └─ propertyAdd ✔
+            2018-05-13T12:01:26.274508
+               tries = `1000`
+               checks = `1000`
+               seed = `7178696498059007779`
+
+Test run finished after 498 ms
+```
+@[4](Failure due to not running on the `--module-path`)
+
+---
+
+# `--module-path` Part 2
+
+Patching test binaries into main modules at runtime
+
++++
+
+### `--class-path` compilation
+
++++
+
+### `--class-path` compilation
+
+---
+
+# `--module-path` Part 3
+
+Patching main sources into test modules at compile time
+
++++
+
+### 🔲 `black.box/module-info.java`
+
+```java
+open module black.box {
+	requires com.example.application;
+	requires com.example.tool;
+
+	requires org.junit.jupiter.api;
+	requires junit;
+	requires net.jqwik;
+}
+```
+@[1](`module black.box` with `open` qualifier) @note[Permit deep reflection into this module]
+@[2-3](Modules under test)
+@[4-6](Test framework APIs)
+
++++
+
+### 🔨 `com.example.tool/module-info.java`
+
+```java
+open module com.example.tool {
+	exports com.example.tool;
+
+	requires org.junit.jupiter.api;
+	requires org.junit.jupiter.params;
+}
+```
+@[1](`module com.example.tool` with `open` qualifier)
+@[2](Copied elements from `main` module descriptor)
+@[4-5](Test framework APIs)
 
 ---
 
