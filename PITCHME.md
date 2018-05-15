@@ -459,14 +459,14 @@ jar
 
 ```txt
 ├── main
-│   ├── com.example.application
+│   ├──📀 com.example.application
 │   │   ├── com
 │   │   │   └── example
 │   │   │       └── application
 │   │   │           └── Main.class
 │   │   └── module-info.class
 │   │
-│   ├── com.example.tool
+│   ├──🔨 com.example.tool
 │   │   ├── com
 │   │   │   └── example
 │   │   │       └── tool
@@ -475,7 +475,7 @@ jar
 │   │   │               └── MathHelper.class
 │   │   └── module-info.class
 │   │
-│   └── ice.cream
+│   └──🍦 ice.cream
 │       ├── ice
 │       │   └── cream
 │       │       ├── Flavor.class
@@ -484,13 +484,13 @@ jar
 │       └── module-info.class
 │
 └── main-jars
-    ├── com.example.application.jar
-    ├── com.example.tool.jar
-    └── ice.cream.jar
+    ├── 📀 com.example.application.jar
+    ├── 🔨 com.example.tool.jar
+    └── 🍦 ice.cream.jar
 ```
-@[2-7](Exploded Module: `com.example.application`)
-@[9-16](Exploded Module: `com.example.tool`)
-@[18-24](Exploded Module: `ice.cream`)
+@[2-7](`module com.example.application`)
+@[9-16](`module com.example.tool`)
+@[18-24](`module ice.cream`)
 @[26-29](Packaged modules, i.e. modular jars)
 
 +++
@@ -554,6 +554,78 @@ contains ice.cream
 
 # Testing In The
 # Modular World
+
++++
+
+### Organizing Tests 1
+<br>
+
+Where should I put my test files?
+
+<https://junit.org/junit4/faq.html#organize_1>
+
+```text
+main
+   com
+      xyz
+         SomeClass.java
+         SomeClassTest.java
+```
+
+Note:
+You can place your tests in the same package and directory as the classes under test.
+While adequate for small projects, many developers feel that this approach clutters
+the source directory, and makes it hard to package up client deliverables without
+also including unwanted test code, or writing unnecessarily complex packaging tasks.
+
++++
+
+### Organizing Tests 2
+<br>
+
+Separate tests into dedicated `test` directory
+
+```text
+main
+   com
+      xyz
+         SomeClass.java
+test
+   com
+      xyz
+         SomeClassTest.java
+```
+
+Note:
+An arguably better way is to place the tests in a separate parallel directory structure with package alignment.
+These approaches allow the tests to access to all the public and package visible methods of the classes under test.
+
++++
+
+### Organizing Tests 3
+<br>
+
+Extrapolate to the Java module system
+
+```text
+main
+   com.xyz
+     com
+        xyz
+          SomeClass.java
+     module-info.java
+         
+test
+   com.xyz
+     com
+        xyz
+         SomeClassTest.java
+     module-info.java         
+```
+
+Note:
+An arguably better way is to place the tests in a separate parallel directory structure with package alignment.
+These approaches allow the tests to access to all the public and package visible methods of the classes under test.
 
 +++
 
