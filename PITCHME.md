@@ -695,8 +695,9 @@ These approaches allow the tests to access to all the public and package visible
 
 ---
 
-# 1. `--class-path`
-### Avoid Module Path
+# 1.
+##`--class-path`
+### Avoid module path
 
 +++
 
@@ -790,36 +791,19 @@ Test run finished after 498 ms
 
 ---
 
-# 2. `--module-path`
+# 2.
+## `--module-path`
 ### Patch Runtime
 
 Patching test binaries into main modules at runtime
 
 +++
 
-```text
-javac
-        -d
-          bin/test-patch-runtime/com.example.application
-        --class-path
-          bin/main-jars/com.example.tool.jar
-          bin/main-jars/com.example.application.jar
-          bin/main-jars/ice.cream.jar
-          lib/junit-platform-commons-1.2.0.jar
-          lib/junit-platform-console-1.2.0.jar
-          lib/junit-platform-engine-1.2.0.jar
-          lib/junit-platform-launcher-1.2.0.jar
-          lib/junit-jupiter-api-5.2.0.jar
-          lib/junit-jupiter-params-5.2.0.jar
-          lib/junit-jupiter-engine-5.2.0.jar
-          lib/junit-vintage-engine-5.2.0.jar
-          lib/junit-4.12.jar
-          lib/hamcrest-core-1.3.jar
-          lib/apiguardian-api-1.0.0.jar
-          lib/opentest4j-1.1.0.jar
-          lib/jqwik-0.8.10.jar
-        src/test/com.example.application/com/example/application/MainTests.java
 
+#### 2. Patch `--module-path`
+### Compile
+
+```text
 javac
         -d
           bin/test-patch-runtime/com.example.tool
@@ -842,29 +826,6 @@ javac
           lib/jqwik-0.8.10.jar
         src/test/com.example.tool/com/example/tool/CalculatorTests.java
         src/test/com.example.tool/com/example/tool/internal/MathHelperTests.java
-
-javac
-        -d
-          bin/test-patch-runtime/ice.cream
-        --class-path
-          bin/main-jars/com.example.tool.jar
-          bin/main-jars/com.example.application.jar
-          bin/main-jars/ice.cream.jar
-          lib/junit-platform-commons-1.2.0.jar
-          lib/junit-platform-console-1.2.0.jar
-          lib/junit-platform-engine-1.2.0.jar
-          lib/junit-platform-launcher-1.2.0.jar
-          lib/junit-jupiter-api-5.2.0.jar
-          lib/junit-jupiter-params-5.2.0.jar
-          lib/junit-jupiter-engine-5.2.0.jar
-          lib/junit-vintage-engine-5.2.0.jar
-          lib/junit-4.12.jar
-          lib/hamcrest-core-1.3.jar
-          lib/apiguardian-api-1.0.0.jar
-          lib/opentest4j-1.1.0.jar
-          lib/jqwik-0.8.10.jar
-        src/test/ice.cream/ice/cream/FlavorTests.java
-        src/test/ice.cream/ice/cream/MachineTests.java
 ```
 
 +++
