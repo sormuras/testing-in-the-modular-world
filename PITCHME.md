@@ -6,9 +6,7 @@ Note: Привет! Welcome!
 
 +++
 
-#### About me
-
-Christian Stein
+#### Christian Stein
 
 Software Engineer at [MICROMATA](https://www.micromata.de/)
 
@@ -18,7 +16,7 @@ Software Engineer at [MICROMATA](https://www.micromata.de/)
 
 * Apache Maven Committer since ... two weeks
 
-*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)
+<small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)</small>
 
 +++
 
@@ -45,10 +43,6 @@ _"Will tell what I'm doing here_
 _And I hope you see much clearer,_
 
 _After testing in the modular world."_
-
-<https://github.com/junit-team/junit5-samples>
-
-**junit5-modular-world**
 
 +++
 
@@ -989,5 +983,15 @@ java
 
 ---
 
-# Thank You
+# Take-away
+
+* There is no JUnit 5 - use JUnit 5! 
+* Test your Java modules, in and out.
+* **junit5-modular-world** 👉 <small><https://github.com/junit-team/junit5-samples></small>
+
++++
+
+# Thanks!
 #### Do you see much clearer? 
+
+<small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)</small>
