@@ -455,9 +455,43 @@ jar
 
 +++
 
-#### Main Binaries
+#### `tree bin`
 
-![bin/main](img/screenshot-bin.png)
+```txt
+├── main
+│   ├── com.example.application
+│   │   ├── com
+│   │   │   └── example
+│   │   │       └── application
+│   │   │           └── Main.class
+│   │   └── module-info.class
+│   │
+│   ├── com.example.tool
+│   │   ├── com
+│   │   │   └── example
+│   │   │       └── tool
+│   │   │           ├── Calculator.class
+│   │   │           └── internal
+│   │   │               └── MathHelper.class
+│   │   └── module-info.class
+│   │
+│   └── ice.cream
+│       ├── ice
+│       │   └── cream
+│       │       ├── Flavor.class
+│       │       ├── Machine.class
+│       │       └── Scoop.class
+│       └── module-info.class
+│
+└── main-jars
+    ├── com.example.application.jar
+    ├── com.example.tool.jar
+    └── ice.cream.jar
+```
+@[2-7](Exploded Module: `com.example.application`)
+@[9-16](Exploded Module: `com.example.tool`)
+@[18-24](Exploded Module: `ice.cream`)
+@[26-29](Packaged modules, i.e. modular jars)
 
 +++
 
