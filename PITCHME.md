@@ -146,7 +146,7 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 ![JUnit 5 Architecture](img/junit5-architecture-1.png)
 
-+++
+---
 
 ### JUnit Platform
 # Launcher
@@ -360,6 +360,10 @@ A module’s data must be able to contain static resource files and user-editabl
 
 # Modular Project
 
++++
+
+# Project Overview
+
 @ul
 
 - Application named 📀 **`com.example.application`**
@@ -568,7 +572,6 @@ contains ice.cream
 +++
 
 ### Organizing Tests 1
-<br>
 
 Where should I put my test files?
 
@@ -591,7 +594,6 @@ also including unwanted test code, or writing unnecessarily complex packaging ta
 +++
 
 ### Organizing Tests 2
-<br>
 
 Separate tests into dedicated `test` directory
 
@@ -613,7 +615,6 @@ These approaches allow the tests to access to all the public and package visible
 +++
 
 ### Organizing Tests 3
-<br>
 
 Extrapolate to the Java module system
 
@@ -637,15 +638,15 @@ Note:
 An arguably better way is to place the tests in a separate parallel directory structure with package alignment.
 These approaches allow the tests to access to all the public and package visible methods of the classes under test.
 
-+++
+---
 
-### Goals
+### Sample Goals
 <br>
 
 @ul
 
-- Module API "black-box" tests
-- Module internal "white-box" tests
+- 1 "blackbox" test module 🔲
+- 3 "whitebox" test modules 📀 🔨 🍦
 - Run multiple engines
 
 @ulend
@@ -694,13 +695,13 @@ These approaches allow the tests to access to all the public and package visible
 
 ---
 
-# 
-
-Resorting to the `--class-path`
+# 1. `--class-path`
+### Avoid Module Path
 
 +++
 
-### `--class-path` compilation
+### `--class-path`
+### Compilation
 
 ```text
 javac
@@ -739,7 +740,8 @@ javac
 
 +++
 
-### `--class-path` launch
+### `--class-path`
+### Test Launch
 
 ```text
 java
@@ -758,13 +760,14 @@ java
 
 +++
 
-### `--class-path` results
+### `--class-path`
+### Test Run
 
 ```text
 ╷
 ├─ JUnit Jupiter ✔
 │  ├─ black.box/black.box.BlackBoxTests ✔
-│  │  ├─ moduleName() ■ Assumption failed: Calculator resides in a named module
+│  │  ├─ moduleName() ■ Assumption failed: Unnamed module!
 │  │  ├─ add(RepetitionInfo) ✔
 │  │  │  ├─ 1 + 5 ✔
 │  │  │  ├─ 2 + 5 ✔
@@ -787,7 +790,8 @@ Test run finished after 498 ms
 
 ---
 
-# `--module-path` Part 2
+# 2. `--module-path`
+### Patch Runtime
 
 Patching test binaries into main modules at runtime
 
@@ -898,7 +902,8 @@ java
 
 ---
 
-# `--module-path` Part 3
+# 3. `--module-path`
+### Patch Compile
 
 Patching main sources into test modules at compile time
 
