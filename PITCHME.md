@@ -695,13 +695,12 @@ These approaches allow the tests to access to all the public and package visible
 
 ---
 
-# 1.
-##`--class-path`
-### Avoid module path
+# 1. Avoid module path
+## `--class-path`
 
 +++
 
-### `--class-path`
+### 1. `--class-path`
 ### Compilation
 
 ```text
@@ -791,14 +790,12 @@ Test run finished after 498 ms
 
 ---
 
-# 2.
+# 2. Patch Runtime
 ## `--module-path`
-### Patch Runtime
 
 Patching test binaries into main modules at runtime
 
 +++
-
 
 #### 2. Patch `--module-path`
 ### Compile
