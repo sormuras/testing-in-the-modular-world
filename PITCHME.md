@@ -693,6 +693,18 @@ These approaches allow the tests to access to all the public and package visible
 @[16-23](`module com.example.tool`)
 @[25-31](`module ice.cream`)
 
++++
+
+### 3 Solutions
+
+@ul
+
+- Resorting to the `--class-path`
+- Patching test binaries into main modules at runtime
+- Patching main sources into test modules at compile time
+
+@ulend
+
 ---
 
 # 1. Avoid module path
