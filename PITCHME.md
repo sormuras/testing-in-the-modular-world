@@ -6,6 +6,22 @@ Note: Привет! Welcome!
 
 +++
 
+#### About me
+
+Christian Stein
+
+Software Engineer at [MICROMATA](https://www.micromata.de/)
+
+![Micromata](img/micromata.png)
+
+* JUnit 5 Committer since 2017
+
+* Apache Maven Committer since ... two weeks
+
+*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)
+
++++
+
 @title[Living In The Material World]
 #### Living In The Material World
 <br>
