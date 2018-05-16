@@ -374,7 +374,8 @@ A module’s data must be able to contain static resource files and user-editabl
 +++
 
 ###### Modules
-### `module-info.java`
+
+`module-info.java`
 
 ```java
 import annotation.A;
