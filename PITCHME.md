@@ -375,7 +375,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 ###### Modules
 
-`module-info.java`
+`module-info.java` is a [compilation unit](https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7)
 
 ```java
 import annotation.A;
@@ -404,8 +404,10 @@ module com.example.foo {
 @[11-12](The `exports` directive specifies the name of a **package** to be exported by the current module.)
 @[14-16](The `opens` directive specifies the name of a **package** to be opened by the current module.)
 @[18-19](Service consumption and provision via `java.util.ServiceLoader`.)
+@[1-20]
 
-<small><https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7></small>
+Note:
+Java Language Specification says "A module declaration specifies a new named module"
 
 ---
 
@@ -625,12 +627,12 @@ contains ice.cream
 
 ---
 
-# Testing In The
-# Modular World
+# Modular Tests
 
 +++
 
-### Organizing Tests 1
+###### Modular Tests
+### Organizing 1
 
 Where should I put my test files?
 
@@ -652,7 +654,8 @@ also including unwanted test code, or writing unnecessarily complex packaging ta
 
 +++
 
-### Organizing Tests 2
+###### Modular Tests
+### Organizing 2
 
 Separate tests into dedicated `test` directory
 
@@ -673,7 +676,8 @@ These approaches allow the tests to access to all the public and package visible
 
 +++
 
-### Organizing Tests 3
+###### Modular Tests
+### Organizing 3
 
 Extrapolate to the Java module system
 
@@ -699,19 +703,17 @@ These approaches allow the tests to access to all the public and package visible
 
 ---
 
-### Sample Goals
+###### Modular Tests
+### Which kind of test?
 <br>
-
-@ul
 
 - 1 "blackbox" test module 🔲
 - 3 "whitebox" test modules 📀 🔨 🍦
 - Run multiple engines
 
-@ulend
-
 +++
 
+###### Modular Tests
 #### `tree src/test`
 
 ```txt
