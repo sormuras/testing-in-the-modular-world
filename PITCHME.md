@@ -8,14 +8,17 @@ Note: Привет! Welcome!
 
 #### Christian Stein
 
+[MICROMATA](https://www.micromata.de/)
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" />
-[MICROMATA](https://www.micromata.de/) Software Engineer<br/> 
+Software Engineer<br/> 
 
+JUnit
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-logo.png" height="80" />
-JUnit 5 Committer<br/>
+Core Team<br/>
 
+Apache 
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/maven-logo-black-on-white.png" height="80" />
-Apache Maven Committer<br/>
+Committer<br/>
 
 <small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Blog:* [sormuras.github.io](https://sormuras.github.io)</small>
 
