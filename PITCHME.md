@@ -8,13 +8,13 @@ Note: Привет! Welcome!
 
 #### Christian Stein
 
-Software Engineer at [MICROMATA](https://www.micromata.de/)
+![Micromata](img/micromata-logo.png)
 
-![Micromata](img/micromata.png)
+[MICROMATA](https://www.micromata.de/) Software Engineer 
 
-* JUnit 5 Committer since 2017
+![JUnit 5](img/junit5-logo.png) JUnit 5 Committer since 2017
 
-* Apache Maven Committer since ... two weeks
+![Maven](img/maven-logo-black-on-white.png) Apache Maven Committer since two weeks
 
 <small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)</small>
 
