@@ -88,7 +88,7 @@ Not a single artifact.
 @ul
 
 - Foundation for launching test engines
-- Defines and uses **`TestEngine`** interface
+- Defines and uses **`TestEngine`** ☑ interface
 
 @ulend
 
@@ -102,7 +102,7 @@ Not a single artifact.
 
 - New programming model for writing tests
 - New extension model for writing extensions
-- **`JupiterTestEngine implements TestEngine`**
+- <small>**`JupiterTestEngine implements TestEngine`**</small>☑
 
 @ulend
 
@@ -115,7 +115,7 @@ Not a single artifact.
 @ul
 
 - Enables running JUnit 3 and 4 tests
-- **`VintageTestEngine implements TestEngine`**
+- <small>**`VintageTestEngine implements TestEngine`**</small>☑
 
 @ulend
 
@@ -129,14 +129,14 @@ Not a single artifact.
 
 - What is a test? **You define it!**
 - How is a test evaluated? **You define it!**
-- **`YourTestEngine implements TestEngine`**
+- <small>**`YourTestEngine implements TestEngine`**</small>☑
 
 @ulend
 
 +++
 
 #### JUnit 5 = Platform + *many engines*
-# 3<sup>rd</sup>-party Engines
+# 3<sup>rd</sup>-party Engines ☑
 
 Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
@@ -477,11 +477,12 @@ module com.example.tool {          module com.example.application {
 ```
 
 ```java
+import org.junit.platform.engine.TestEngine;
+
 module ice.cream {
 	requires org.junit.platform.engine; Ⓜ
 
-	provides org.junit.platform.engine.TestEngine 📜
-	    with ice.cream.Machine; 🍦
+	provides TestEngine ☑ with ice.cream.Machine; 🍦
 }
 ```
 
