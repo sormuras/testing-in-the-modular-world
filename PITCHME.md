@@ -152,11 +152,13 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 ---
 
+###### JUnit 5
 ### JUnit Platform
 # Launcher
 
 +++
 
+###### JUnit 5
 ### Launcher API
 
 ```java
@@ -186,6 +188,7 @@ Discovery takes place across all participating test engines.
 
 +++
 
+###### JUnit 5
 ### Console Launcher
 
 ```text
@@ -212,11 +215,13 @@ and print test execution results to the console.
 
 ---
 
+###### JUnit 5
 ### Test Engine
 # Jupiter
 
 +++
 
+###### JUnit 5
 ### First Jupiter Test
 
 ```java
@@ -238,6 +243,7 @@ class FirstJupiterTests {
 
 +++
 
+###### JUnit 5
 ### Composed Annotations
 
 ```java
@@ -256,6 +262,7 @@ void mySecondTest() {...}
 
 +++
 
+###### JUnit 5
 ### Jupiter Features 1
 <br>
 
@@ -274,6 +281,7 @@ void mySecondTest() {...}
 
 +++
 
+###### JUnit 5
 ### Jupiter Features 2
 <br>
 
@@ -292,6 +300,7 @@ void mySecondTest() {...}
 
 +++
 
+###### JUnit 5
 ### Jupiter Features 3
 ## User Guide
 <br>
@@ -305,6 +314,7 @@ Platform and Vintage are covered, too.
 
 +++
 
+###### JUnit 5
 ### Jupiter Features 4
 ## 3<sup>rd</sup>-party Extensions
 
@@ -329,6 +339,7 @@ It’s just “the Java module system.” #jigsaw #jdk9 #java
 
 +++
 
+###### Modules
 ### Goals of the ~~JPMS~~
 ## Java Module System
 
@@ -357,8 +368,43 @@ A module’s data must be able to contain static resource files and user-editabl
 # This is a module
 
 - Named program component
-- Set of packages (code and data)
-- Module meta-data (module descriptor)
+- Set of packages
+- Meta-data
+
++++
+
+###### Modules
+### `module-info.java`
+
+```java
+import annotation.A;
+import annotation.B;
+import com.example.foo.Impl;
+
+@A @B
+module com.example.foo {
+    requires com.example.foo.http;
+    requires java.logging;
+    requires transitive com.example.foo.network;
+
+    exports com.example.foo.bar;
+    exports com.example.foo.internal to com.example.foo.probe;
+
+    opens com.example.foo.quux;
+    opens com.example.foo.internal to com.example.foo.network,
+                                      com.example.foo.probe;
+
+    uses com.example.foo.spi.Intf;
+    provides com.example.foo.spi.Intf with Impl;
+}
+```
+@[6](Module name)
+@[7-9](The `requires` directive specifies the name of a **module** on which the current module has a dependence.)
+@[11-12](The `exports` directive specifies the name of a **package** to be exported by the current module.)
+@[14-16](The `opens` directive specifies the name of a **package** to be opened by the current module.)
+@[18-19](Service consumption and provision via `java.util.ServiceLoader`.)
+
+<small><https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7></small>
 
 ---
 
@@ -366,6 +412,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
+###### Modules
 # Project Overview
 
 @ul
@@ -383,6 +430,7 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
+###### Modules
 #### `tree src/main`
 
 ```txt
@@ -416,7 +464,8 @@ A module’s data must be able to contain static resource files and user-editabl
 
 +++
 
-#### Main Modules: `module-info.java`
+###### Modules
+#### `module-info.java`
 
 ```java
 module com.example.tool {          module com.example.application {
@@ -432,11 +481,11 @@ module ice.cream {
 	    with ice.cream.Machine; 🍦
 }
 ```
-<small><https://docs.oracle.com/javase/specs/jls/se10/html/jls-7.html#jls-7.7></small>
 
 +++
 
-#### Main Modules: Compile
+###### Modules
+#### Main Compile
 
 ```sh
 javac                            javac
@@ -454,7 +503,8 @@ Note: Analogue command for the ice.cream module
 
 +++
 
-#### Main Modules: Package
+###### Modules
+#### Main Package
 
 ```sh
 jar
@@ -473,6 +523,7 @@ jar
 
 +++
 
+###### Modules
 #### `tree bin`
 
 ```txt
@@ -513,6 +564,7 @@ jar
 
 +++
 
+###### Modules
 #### Tool Module 🔨
 
 <small>`jar --describe-module --file bin/main-jars/com.example.tool.jar`</small>
@@ -531,6 +583,7 @@ contains com.example.tool.internal
 
 +++
 
+###### Modules
 #### Application Module 📀
 
 <small>`jar --describe-module --file .../com.example.application.jar`</small>
@@ -550,6 +603,7 @@ main-class com.example.application.Main
 
 +++
 
+###### Modules
 #### Ice Cream Module 🍦
 
 <small>`jar --describe-module --file bin/main-jars/ice.cream.jar`</small>
