@@ -1,12 +1,15 @@
-# theme : beige # don't fix it
+# published : true
+
+# theme : beige # don't fix it, yet
+theme-override : PITCHME.css
+
 layout : center
 footnote : "testing-in-the-modular-world // ©2018 Christian Stein // @sormuras"
 slide-number : true
 
 # logo : img/logo.png
-# theme-override : PITCHME.css
+# logo-position : top-right
 # transition : none
 # highlight : ir-black
 # charts : true
 # mathjax : TeX-AMS_HTML-full
-# published : true
