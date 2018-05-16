@@ -400,10 +400,10 @@ module com.example.foo {
 }
 ```
 @[6](Module name)
-@[7-9](The `requires` directive specifies the name of a **module** on which the current module has a dependence.)
-@[11-12](The `exports` directive specifies the name of a **package** to be exported by the current module.)
-@[14-16](The `opens` directive specifies the name of a **package** to be opened by the current module.)
-@[18-19](Service consumption and provision via `java.util.ServiceLoader`.)
+@[7-9](Name of a **module** on which this module has a dependence)
+@[11-12](Name of a **package** to be exported by the this module)
+@[14-16](Name of a **package** to be opened by the current module)
+@[18-19](Service consumption and provision via `java.util.ServiceLoader`)
 @[1-20]
 
 Note:
