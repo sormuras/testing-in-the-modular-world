@@ -941,9 +941,9 @@ at test runtime.
 
 @ul
 
-* Use similar compiler options as on the `--class-path`
-* But drop each module binaries into a dedicated directory
-* 🔨 <small>bin/test-patch-runtime/com.example.tool</small>
+* Use similar options as on the `--class-path`
+* But drop binaries into a dedicated directory
+* bin/test-patch-runtime/com.example.tool 🔨
 
 @ulend
 
@@ -1110,13 +1110,14 @@ java
 @[10-12](Vintage test)
 @[13-34](Jupiter tests)
 @[35-40](ice.cream "scoops")
+@[15](Test passed. Yeah!)
 
 ---
 
 # Take-away
 
-* There is no JUnit 5 - use JUnit 5! 
-* Test your Java modules, in and out.
+* There is no JUnit 5 - use JUnit 5! ✅
+* Try and test Java modules. ☕
 * How to test them best? To be seen...
 
 +++
