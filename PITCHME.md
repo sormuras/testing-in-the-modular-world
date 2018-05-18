@@ -796,7 +796,7 @@ open module black.box {
 ```
 @[1](`module black.box` with `open` qualifier) @note[Permit deep reflection into this module]
 @[2-3](Modules under test)
-@[4-6](Test framework APIs)
+@[5-7](Test framework modules)
 
 +++
 
