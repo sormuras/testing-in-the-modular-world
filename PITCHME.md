@@ -79,6 +79,9 @@ Not a single artifact.
 
 ![JUnit 5 Architecture](img/junit5-architecture-0.png)
 
+Note:
+Now, into the red box: the Platform
+
 +++
  
 #### JUnit 5 = ...
@@ -91,6 +94,13 @@ Not a single artifact.
 - Defines and uses **`TestEngine`** ☑ interface
 
 @ulend
+
++++
+
+![JUnit 5 Architecture](img/junit5-architecture-0.png)
+
+Note:
+Next, let's dive in to green box: Jupiter
 
 +++
  
@@ -109,6 +119,13 @@ Not a single artifact.
 
 +++
 
+![JUnit 5 Architecture](img/junit5-architecture-0.png)
+
+Note:
+Don't forget your legacy, the yellow box: Vintage
+
++++
+
 #### JUnit 5 = Platform + Jupiter + ...
 # Vintage
 <br>
@@ -119,6 +136,13 @@ Not a single artifact.
 - Enables running JUnit 3 and 4 tests
 
 @ulend
+
++++
+
+![JUnit 5 Architecture](img/junit5-architecture-0.png)
+
+Note:
+Now the most interesting part in blue color: Your Engine
 
 +++
 
