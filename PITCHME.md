@@ -673,8 +673,9 @@ main
 ```
 
 Note:
-You can place your tests in the same package and directory as the classes under test.
-While adequate for small projects, many developers feel that this approach clutters
+Once upon a time, you placed your tests in the same package and directory as
+the classes under test.
+While adequate for small projects, many developers felt that this approach clutters
 the source directory, and makes it hard to package up client deliverables without
 also including unwanted test code, or writing unnecessarily complex packaging tasks.
 
@@ -715,17 +716,17 @@ main
           SomeClass.java
      module-info.java
          
-test
-   com.xyz
-     com
-        xyz
-         SomeClassTest.java
-     module-info.java         
+test                            test
+   com.xyz                        black.box
+     com                             black
+       xyz                             box
+         SomeClassTest.java              BlackBoxTests.java
+     module-info.java                module-info.java
 ```
 
 Note:
-An arguably better way is to place the tests in a separate parallel directory structure with package alignment.
-These approaches allow the tests to access to all the public and package visible methods of the classes under test.
+Blackbox = Different module name (module API tests)
+Whitebox = Same module name (internal tests)
 
 ---
 
@@ -735,7 +736,6 @@ These approaches allow the tests to access to all the public and package visible
 
 - 1 "blackbox" test module 🔲
 - 3 "whitebox" test modules 📀 🔨 🍦
-- Run multiple engines
 
 +++
 
@@ -779,6 +779,40 @@ These approaches allow the tests to access to all the public and package visible
 @[9-14](`module com.example.application`)
 @[16-23](`module com.example.tool`)
 @[25-31](`module ice.cream`)
+
++++
+
+### 🔲 `black.box/module-info.java`
+
+```java
+open module black.box {
+	requires com.example.application;
+	requires com.example.tool;
+
+	requires org.junit.jupiter.api;
+	requires junit;
+	requires net.jqwik;
+}
+```
+@[1](`module black.box` with `open` qualifier) @note[Permit deep reflection into this module]
+@[2-3](Modules under test)
+@[4-6](Test framework APIs)
+
++++
+
+### 🔨 `com.example.tool/module-info.java`
+
+```java
+open module com.example.tool {
+	exports com.example.tool;
+
+	requires org.junit.jupiter.api;
+	requires org.junit.jupiter.params;
+}
+```
+@[1](`module com.example.tool` with `open` qualifier)
+@[2](Copied elements from `main` module descriptor)
+@[4-5](Test framework APIs)
 
 +++
 
@@ -963,40 +997,6 @@ java
 ### Patch Compile
 
 Patching main sources into test modules at compile time
-
-+++
-
-### 🔲 `black.box/module-info.java`
-
-```java
-open module black.box {
-	requires com.example.application;
-	requires com.example.tool;
-
-	requires org.junit.jupiter.api;
-	requires junit;
-	requires net.jqwik;
-}
-```
-@[1](`module black.box` with `open` qualifier) @note[Permit deep reflection into this module]
-@[2-3](Modules under test)
-@[4-6](Test framework APIs)
-
-+++
-
-### 🔨 `com.example.tool/module-info.java`
-
-```java
-open module com.example.tool {
-	exports com.example.tool;
-
-	requires org.junit.jupiter.api;
-	requires org.junit.jupiter.params;
-}
-```
-@[1](`module com.example.tool` with `open` qualifier)
-@[2](Copied elements from `main` module descriptor)
-@[4-5](Test framework APIs)
 
 +++
 
