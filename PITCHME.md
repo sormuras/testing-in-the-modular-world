@@ -20,7 +20,7 @@ Apache
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/maven-logo-black-on-white.png" height="80" />
 Committer<br/>
 
-<small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Blog:* [sormuras.github.io](https://sormuras.github.io)</small>
+<small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)</small>
 
 +++
 
@@ -734,8 +734,8 @@ Whitebox = Same module name (internal tests)
 ### Which kind of test?
 <br>
 
-- 1 "blackbox" test module 🔲
-- 3 "whitebox" test modules 📀 🔨 🍦
+- blackbox test module 🔲
+- whitebox test module 📀 🔨 🍦
 
 +++
 
@@ -782,7 +782,8 @@ Whitebox = Same module name (internal tests)
 
 +++
 
-### 🔲 `black.box/module-info.java`
+### 🔲 black.box
+#### `module-info.java`
 
 ```java
 open module black.box {
@@ -800,7 +801,8 @@ open module black.box {
 
 +++
 
-### 🔨 `com.example.tool/module-info.java`
+### 🔨 com.example.tool
+#### `module-info.java`
 
 ```java
 open module com.example.tool {
@@ -833,15 +835,15 @@ open module com.example.tool {
 
 +++
 
-### 1. `--class-path`
-### Compilation
+#### 1. `--class-path`
+#### Compilation
 
 ```text
 javac
     -d
       bin/test-classpath
     --class-path
-      bin/main-jars/com.example.tool.jar
+      bin/main-jars/com.example.tool.jar 🔨
       bin/main-jars/com.example.application.jar
       bin/main-jars/ice.cream.jar
       lib/junit-platform-commons-1.2.0.jar
@@ -873,8 +875,8 @@ javac
 
 +++
 
-### `--class-path`
-### Test Launch
+#### 1. `--class-path`
+#### Test Launch
 
 ```text
 java
@@ -893,8 +895,8 @@ java
 
 +++
 
-### `--class-path`
-### Test Run
+#### 1. `--class-path`
+#### Test Report
 
 ```text
 ╷
@@ -926,63 +928,53 @@ Test run finished after 498 ms
 # 2. Patch Runtime
 ## `--module-path`
 
-Patching test binaries into main modules at runtime
+Patching test binaries
+
+into main modules
+
+at test runtime.
 
 +++
 
-#### 2. Patch `--module-path`
-### Compile
+#### 2. Patch Runtime
+#### Compilation
 
-```text
-javac
-        -d
-          bin/test-patch-runtime/com.example.tool
-        --class-path
-          bin/main-jars/com.example.tool.jar
-          bin/main-jars/com.example.application.jar
-          bin/main-jars/ice.cream.jar
-          lib/junit-platform-commons-1.2.0.jar
-          lib/junit-platform-console-1.2.0.jar
-          lib/junit-platform-engine-1.2.0.jar
-          lib/junit-platform-launcher-1.2.0.jar
-          lib/junit-jupiter-api-5.2.0.jar
-          lib/junit-jupiter-params-5.2.0.jar
-          lib/junit-jupiter-engine-5.2.0.jar
-          lib/junit-vintage-engine-5.2.0.jar
-          lib/junit-4.12.jar
-          lib/hamcrest-core-1.3.jar
-          lib/apiguardian-api-1.0.0.jar
-          lib/opentest4j-1.1.0.jar
-          lib/jqwik-0.8.10.jar
-        src/test/com.example.tool/com/example/tool/CalculatorTests.java
-        src/test/com.example.tool/com/example/tool/internal/MathHelperTests.java
-```
+@ul
+
+* Use similar compiler options as on the `--class-path`
+* But drop each module binaries into a dedicated directory
+* 🔨 <small>bin/test-patch-runtime/com.example.tool</small>
+
+@ulend
 
 +++
+
+#### 2. Patch Runtime
+#### Test Launch
 
 ```text
 java
     --module-path
-      bin/main-jars:lib:bin/test-patch-compile/black.box
+      bin/main-jars : lib : bin/test-patch-runtime/black.box
     --add-modules
       ALL-MODULE-PATH,ALL-DEFAULT
     --patch-module
       com.example.application=bin/test-patch-runtime/com.example.application
-    --patch-module
+    --patch-module 🔨
       com.example.tool=bin/test-patch-runtime/com.example.tool
     --patch-module
       ice.cream=bin/test-patch-runtime/ice.cream
     --add-opens
       com.example.application/com.example.application=org.junit.platform.commons
-    --add-opens
+    --add-opens 🔨
       com.example.tool/com.example.tool=org.junit.platform.commons
-    --add-opens
+    --add-opens 🔨
       com.example.tool/com.example.tool.internal=org.junit.platform.commons
     --add-opens
       ice.cream/ice.cream=org.junit.platform.commons
     --add-reads
       com.example.application=org.junit.jupiter.api
-    --add-reads
+    --add-reads 🔨
       com.example.tool=org.junit.jupiter.api
     --module
       org.junit.platform.console
@@ -990,26 +982,38 @@ java
       bin/test-patch-runtime-results/junit-platform
     --scan-modules
 ```
+@[2-3](All parts we need launch the test plan)
+@[6-11](Patch test binaries into main modules)
+@[12-19](Open modules at runtime for test discovery)
+@[20-23](Add `requires` directives pointing to test API)
+@[24-28](Finally, launch the platform)
 
 ---
 
-# 3. `--module-path`
-### Patch Compile
+# 3. Patch Compile
+## `--module-path`
 
-Patching main sources into test modules at compile time
+Patching main sources
+
+into test modules
+
+at test compile time.
 
 +++
+
+#### 3. Patch Compile
+#### Compilation
 
 ```text
 javac
     -d
       bin/test-patch-compile
     --module-path
-      bin/main-jars:lib
+      lib
     --patch-module
       com.example.application=src/main/com.example.application
     --patch-module
-      com.example.tool=src/main/com.example.tool
+      com.example.tool=src/main/com.example.tool 🔨
     --patch-module
       ice.cream=src/main/ice.cream
     --module-source-path
@@ -1027,13 +1031,21 @@ javac
     src/test/ice.cream/ice/cream/MachineTests.java
     src/test/ice.cream/module-info.java
 ```
+@[2-3](Destination directory)
+@[4-5](Mount 3rd-party libraries)
+@[6-11](Patch main sources into test modules)
+@[12-13](Root directory of all test modules)
+@[14-25](Test source files)
 
 +++
+
+#### 3. Patch Compile
+#### Test Launch
 
 ```text
 java
     --module-path
-      bin/test-patch-compile:bin/main-jars:lib
+      bin/test-patch-compile : lib
     --add-modules
       ALL-MODULE-PATH,ALL-DEFAULT
     --module
@@ -1042,6 +1054,62 @@ java
       bin/test-patch-compile-results/junit-platform
     --scan-modules
 ```
+@[2-3](All parts we need launch the test plan)
+@[4-5](Resolve all modules on startup)
+@[6-7](Specify module with main entry point)
+@[8-10](`ConsoleLauncher` options)
+
++++
+
+#### 2 and 3
+#### Test run
+
+```text
+.
+├─ JQwik Test Engine ✔
+│  └─ JQwikTests ✔
+│     ├─ exampleFor1And3Equals4 ✔
+│     └─ propertyAdd ✔
+│           2018-03-06T09:39:40.606157
+│              tries = `1000`
+│              checks = `1000`
+│              seed = `-3387297467304298077`
+├─ JUnit Vintage ✔
+│  └─ black.box.GoodOldTest ✔
+│     └─ eighteenEqualsNineAndNine ✔
+├─ JUnit Jupiter ✔
+│  ├─🔲 black.box/black.box.BlackBoxTests ✔
+│  │  ├─ moduleName() ✔
+│  │  ├─ add(RepetitionInfo) ✔
+│  │  │  ├─ 1 + 5 ✔
+│  │  │  ├─ 2 + 5 ✔
+│  │  │  ├─ 3 + 5 ✔
+│  │  │  ├─ 4 + 5 ✔
+│  │  │  └─ 5 + 5 ✔
+│  │  └─ packageName() ✔
+│  ├─📀 com.example.application/com.example.application.MainTests ✔
+│  │  ├─ simpleName() ✔
+│  │  └─ main() ✔
+│  ├─🔨 com.example.tool/com.example.tool.CalculatorTests ✔
+│  │  ├─ add() ✔
+│  │  ├─ mul() ✔
+│  │  └─ pow() ✔
+│  ├─🍦 FlavorTests ✔
+│  │  └─ random() ✔
+│  └─🍦 MachineTests ✔
+│     ├─ id() ✔
+│     └─ caption() ✔
+└─🍦 Ice Cream Machine 47.11 (ice.cream) ✔
+   ├─ Stracciatella ✔
+   ├─ Stracciatella ✔
+   ├─ Chocolate ✔
+   ├─ Vanilla ✔
+   └─ Stracciatella ✔
+```
+@[2-8](jqwik test)
+@[10-12](Vintage test)
+@[13-34](Jupiter tests)
+@[35-40](ice.cream "scoops")
 
 ---
 
@@ -1049,6 +1117,7 @@ java
 
 * There is no JUnit 5 - use JUnit 5! 
 * Test your Java modules, in and out.
+* How to test them best? To be seen...
 
 +++
 
@@ -1059,3 +1128,4 @@ java
 
 *Twitter:* [@sormuras](https://twitter.com/sormuras)
 *Web:* [sormuras.github.io](https://sormuras.github.io)
+*Slides:* [testing-in-the-modular-world](https://github.com/sormuras/testing-in-the-modular-world)
