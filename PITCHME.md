@@ -100,22 +100,23 @@ Not a single artifact.
 
 @ul
 
+- **`JupiterTestEngine` is a `TestEngine`**☑
 - New programming model for writing tests
 - New extension model for writing extensions
-- <small>**`JupiterTestEngine implements TestEngine`**</small>☑
+- *JUnit 5*
 
 @ulend
 
 +++
- 
+
 #### JUnit 5 = Platform + Jupiter + ...
 # Vintage
 <br>
 
 @ul
 
+- **`VintageTestEngine` is a `TestEngine`**☑
 - Enables running JUnit 3 and 4 tests
-- <small>**`VintageTestEngine implements TestEngine`**</small>☑
 
 @ulend
 
@@ -127,9 +128,9 @@ Not a single artifact.
 
 @ul
 
+- **`YourTestEngine implements TestEngine`**☑
 - What is a test? **You define it!**
 - How is a test evaluated? **You define it!**
-- <small>**`YourTestEngine implements TestEngine`**</small>☑
 
 @ulend
 
@@ -1024,11 +1025,13 @@ java
 
 * There is no JUnit 5 - use JUnit 5! 
 * Test your Java modules, in and out.
-* **junit5-modular-world** 👉 <small><https://github.com/junit-team/junit5-samples></small>
 
 +++
 
 # Thanks!
 #### Do you see much clearer? 
 
-<small>*Twitter:* [@sormuras](https://twitter.com/sormuras) *Web:* [sormuras.github.io](https://sormuras.github.io)</small>
+**junit5-modular-world** 👉 <small><https://github.com/junit-team/junit5-samples></small>
+
+*Twitter:* [@sormuras](https://twitter.com/sormuras)
+*Web:* [sormuras.github.io](https://sormuras.github.io)
