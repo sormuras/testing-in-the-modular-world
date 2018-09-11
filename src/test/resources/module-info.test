@@ -1,0 +1,11 @@
+//
+// Patch, i.e. configure, Java module system at test-runtime
+//
+
+// Allow deep reflection for test discovery - repeat for each test library you need
+--add-opens
+  foo/foo=org.junit.platform.commons
+
+// "requires org.junit.jupiter.api"
+--add-reads
+  foo=org.junit.jupiter.api

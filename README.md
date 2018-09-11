@@ -1,5 +1,11 @@
 # testing-in-the-modular-world
 
+## blog
+
+[2018-09-11-testing-in-the-modular-world](https://sormuras.github.io/blog/2018-09-11-testing-in-the-modular-world)
+
+## slide deck
+
 "Testing In The Modular World" (Living In The Material World)
 Testing Modules With JUnit 5 - Initial Approaches
 

@@ -1,0 +1,15 @@
+sudo: false
+
+language: java
+jdk: openjdk11
+
+before_install:
+- unset _JAVA_OPTIONS
+
+script:
+- mvn verify
+- tail -200 target/it/bar/build.log
+
+cache:
+  directories:
+  - $HOME/.m2
