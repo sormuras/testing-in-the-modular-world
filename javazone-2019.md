@@ -9,3 +9,6 @@
 - Multi-Release JAR
 - IDE support?
 - Build Tool support? -> "make-java"
+
+## Check Module
+- `jdeps --check` option is designed to determine if a named module has any unused module dependence or unused qualified-exports.
