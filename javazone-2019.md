@@ -8,8 +8,22 @@
   - Automated checks, mini-programs or "many main methods"
   - https://junit.org/junit4/faq.html#organize_1
   > _You can place your tests in the same package and directory as the classes under test._
+
 - Show of hands "package": Ever used a different test package name for public/protected main types?
 - Module under test requires a module
+- What's a module?
+  - Definition
+  - Best practices regaring naming, requires modifiers, etc...
+- Demo: Let's create a modular library project
+  - `src/de.sormuras.bach.demo/main/java/`
+  - Compile "main" = `javac` + `jar`
+- Demo: Create an integration test module
+  - `src/integration/test/java/`
+  - Compile "test" = `javac` + `jar`
+- Demo: Create white box tests
+  - `src/de.sormuras.bach.demo/test/java/`
+  - Compile "main" = `javac` + `jar`
+- Demo: Launch JUnit Platform with `--scan-modules`
 
 ## Runtime matters
 
