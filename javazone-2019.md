@@ -38,3 +38,4 @@
 - Multi-Release JAR
 - IDE support?
 - Build Tool support? -> "make-java"
+- JUnit on Java 9 -> https://github.com/junit-team/junit5/issues/775
