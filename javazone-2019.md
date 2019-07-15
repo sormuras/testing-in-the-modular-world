@@ -33,9 +33,12 @@
 
 ## Static Check Module
 - `jdeps --check` option is designed to determine if a named module has any unused module dependence or unused qualified-exports.
+- Create `ModuleChecker(Path:GAV).assertNoUnusedDependences().assertNotUnusedQualifiedExports()` support
 
 ## Misc
 - Multi-Release JAR
 - IDE support?
 - Build Tool support? -> "make-java"
 - JUnit on Java 9 -> https://github.com/junit-team/junit5/issues/775
+- Module version numbers -> https://github.com/sormuras/sormuras.github.io/blob/master/demo/test/parameterized/ParseModuleVersions.java
+
