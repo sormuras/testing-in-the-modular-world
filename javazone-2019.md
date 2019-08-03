@@ -1,5 +1,32 @@
 # JUnit 5 - Testing In The Modular World
 
+## Code first, Test first
+
+- Create test module "pura.vida" in IDEA
+
+```java
+module pura.vida {
+  requires java.base; // module(s) under test
+}
+```
+- Create main class `pura.vida.Main` with _psvm_
+- Execute `pura.vida.Main` and show first failing and then working test case
+
+### Move entry point to 
+- Extend test module `pura.vida` with external test frameworks and open it for deep reflection
+
+```java
+open module pura.vida {
+  // (...) module(s) under test
+
+  requires org.junit.jupiter.api;
+  requires org.assertj.core;
+}
+```
+
+- Resolve dependencies via `bach` or use prepared `lib/` directory
+- Talk about module names 
+
 ## Outline
 
 - Show of hands "test": JUnit 3/4 - JUnit 5
