@@ -3,6 +3,11 @@
 ## Code first, Test first
 
 - Create test module "pura.vida" in IDEA
+- Talk about module names (GAV)
+  - Group: a.b
+  - Artifact: a.b.c (= module name)
+  - Version: ModuleDescriptor.Version-parsable
+  - Contains only packages starting with "a.b.c"
 
 ```java
 module pura.vida {
@@ -12,7 +17,7 @@ module pura.vida {
 - Create main class `pura.vida.Main` with _psvm_
 - Execute `pura.vida.Main` and show first failing and then working test case
 
-### Move entry point to 
+### Let JUnit Platform Launcher be the main entry point
 - Extend test module `pura.vida` with external test frameworks and open it for deep reflection
 
 ```java
@@ -25,9 +30,10 @@ open module pura.vida {
 ```
 
 - Resolve dependencies via `bach` or use prepared `lib/` directory
-- Talk about module names 
+- Talk about modules already published at Maven Central
 
-## Outline
+
+## Outdated
 
 - Show of hands "test": JUnit 3/4 - JUnit 5
 - Show of hands "module": method - type - package - module - repository - "cloud"
