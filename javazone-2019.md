@@ -3,11 +3,13 @@
 ## Code first, Test first
 
 - Create test module "pura.vida" in IDEA
-- Talk about module names (GAV)
-  - Group: a.b
-  - Artifact: a.b.c (= module name)
-  - Version: ModuleDescriptor.Version-parsable
-  - Contains only packages starting with "a.b.c"
+- Talk about module names
+  - Valid modules names are ... JLS
+- My naming preference for shared modules is as follows: 
+  - Group: `a.b`
+  - Artifact: `a.b.c` (= module name)
+  - Contains only packages starting with `a.b.c`
+  - Version: `ModuleDescriptor.Version.parse()`-able
 
 ```java
 module pura.vida {
@@ -17,7 +19,7 @@ module pura.vida {
 - Create main class `pura.vida.Main` with _psvm_
 - Execute `pura.vida.Main` and show first failing and then working test case
 
-### Let JUnit Platform Launcher be the main entry point
+### Let JUnit Platform Launcher take over
 - Extend test module `pura.vida` with external test frameworks and open it for deep reflection
 
 ```java
@@ -30,8 +32,42 @@ open module pura.vida {
 ```
 
 - Resolve dependencies via `bach` or use prepared `lib/` directory
-- Talk about modules already published at Maven Central
+- Execute `pura.vida.Main` and see Jupiter Engine kick in
+- Execute test run within IDEA, which uses JUnit Platform Launcher internally
 
+### Introduce own module in same project
+
+- Create empty module `de.sormuras.tool`
+- Extend test module `pura.vida` with `requires de.sormuras.tool`
+- Create public type `de.sormuras.tool.PublicType` and export its package
+- Extend test module with `pura.vida.PublicTypeTests` class
+- Create package-private type `de.sormuras.tool.PackagePrivateType` in exported package
+- Create public type `de.sormuras.tool.internal.PublicHelpers` -- don't export it
+- Try to extend test module `pure.vida` with test cases for non-exported types...
+
+## Create `test/java` directory in module `de.sormuras.tool`
+
+- Write (copy?) test cases for non-exported types
+- Fix `class-path` in IDEA setup.
+- Execute tests...
+- Show that non-exported types from Jupiter are now visible and accessible
+- Show that tests are executed on the class-path, modular assertions fail
+- ...enter --patch-module and Bach.java
+
+## Patching at compile-time
+
+- Use same approach as with `pura.vida`
+- Write a test module descriptor with all bells and whistles
+- Patch main types into test types for compilation
+- Pretend that your main types are siblings of test types... or as noted in JUnit 4 FAQ
+- Proceed with command line support, names Bach.java
+
+## Unique Modules published at Maven Central
+
+- Talk about modules already published at Maven Central
+- Current numbers
+- Progression...
+- Invalid names, Impostors, and other errors
 
 ## Outdated
 
