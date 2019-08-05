@@ -69,6 +69,12 @@ open module pura.vida {
 - Progression...
 - Invalid names, Impostors, and other errors
 
+## Backup
+
+- Include `mainrunner` at test runtime
+  - See engine getting picked up by JUnit Platform
+  - First test program is executed as a test case
+
 ## Outdated
 
 - Show of hands "test": JUnit 3/4 - JUnit 5
@@ -82,7 +88,7 @@ open module pura.vida {
 - Module under test requires a module
 - What's a module?
   - Definition
-  - Best practices regaring naming, requires modifiers, etc...
+  - Best practices regarding naming, requires modifiers, etc...
 - Demo: Let's create a modular library project
   - `src/de.sormuras.bach.demo/main/java/`
   - Compile "main" = `javac` + `jar`
