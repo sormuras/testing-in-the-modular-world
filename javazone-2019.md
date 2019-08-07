@@ -74,6 +74,7 @@ open module pura.vida {
 - Include `mainrunner` at test runtime
   - See engine getting picked up by JUnit Platform
   - First test program is executed as a test case
+- Show modularization of JUnit 5's User Guide example sources: https://github.com/junit-team/junit5/blob/master/platform-tooling-support-tests/src/test/java/platform/tooling/support/tests/ModularUserGuideTests.java
 
 ## Outdated
 
