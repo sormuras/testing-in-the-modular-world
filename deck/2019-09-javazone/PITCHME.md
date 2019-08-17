@@ -1,7 +1,5 @@
 # JUnit 5 - Testing In The Modular World
 
----
-
 ---?include=deck/project-modules/PITCHME.md
 
 ---
