@@ -2,7 +2,7 @@
 
 ---
 
----?include=deck/project/modules/PITCHME.md
+---?include=deck/project-modules/PITCHME.md
 
 ---
 
