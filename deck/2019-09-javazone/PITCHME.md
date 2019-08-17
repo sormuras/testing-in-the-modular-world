@@ -1,5 +1,11 @@
 # JUnit 5 - Testing In The Modular World
 
+---
+
+---?include=deck/project/modules/PITCHME.md
+
+---
+
 ## Code first, Test first
 
 - Create test module "pura.vida" in IDEA
