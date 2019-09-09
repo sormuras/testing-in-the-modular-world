@@ -1,4 +1,34 @@
-# JUnit 5 - Testing In The Modular World
+## JUnit 5 - Testing In The Modular World
+
++++
+
+### About me
+
+- TO B
+
++++
+
+### Agenda
+
+@ul
+
+- JUnit 5
+- Testing
+- Modular World
+
+@ulend
+
++++
+
+### TL;TA
+
+@ul
+
+- JUnit 5 - There's no JUnit 5
+- Testing - Checks, mini programs
+- Modular World - "Is it safe now?" - "Ok I'll wait another year then 😊"
+
+@ulend
 
 ---?include=deck/project-modules/PITCHME.md
 
