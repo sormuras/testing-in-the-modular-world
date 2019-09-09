@@ -32,6 +32,8 @@
 
 ---?include=deck/project-modules/PITCHME.md
 
+---?include=deck/project-junit-platform/PITCHME.md
+
 ---
 
 ## Code first, Test first
