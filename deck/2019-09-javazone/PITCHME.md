@@ -151,6 +151,12 @@ open module pura.vida {
 
 ---
 
+## Links
+
+- https://youtrack.jetbrains.com/issue/KT-27458 _"The Kotlin standard library is not found in the module graph ... in a non-Kotlin project."_
+
+---
+
 ## Outdated
 
 - Show of hands "test": JUnit 3/4 - JUnit 5
