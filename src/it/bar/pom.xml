@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <!-- Get our package module "foo" -->
+        <!-- Get our packaged module "foo" -->
         <dependency>
             <groupId>@project.groupId@</groupId>
             <artifactId>@project.artifactId@</artifactId>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.4.0-M1</version>
+            <version>5.6.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -37,7 +37,7 @@
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>3.8.1</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -48,8 +48,11 @@
             <plugin>
                 <groupId>de.sormuras.junit</groupId>
                 <artifactId>junit-platform-maven-plugin</artifactId>
-                <version>1.0.0-M3</version>
+                <version>1.0.0-M5</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <executor>JAVA</executor>
+                </configuration>
             </plugin>
 
         </plugins>
