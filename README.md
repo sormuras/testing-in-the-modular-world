@@ -44,7 +44,7 @@ JUnit 5 supports scanning for tests in modules since 5.1 and has a sample projec
 Sources are available at: https://github.com/junit-team/junit5-samples/tree/master/junit5-modular-world
 
 I'll start the talk with a basic introduction to JUnit 5 and the Java module system.
-The remainder of the talk will be spent on presenting the three approaches for executing tests when using the JPMS from the command line:
+The remainder of the talk will be spent on presenting the three approaches for executing tests when (not) using the modules from the command line:
 - Resorting to the `--class-path`
 - Patching test binaries into main modules at runtime
 - Patching main sources into test modules at compile time
