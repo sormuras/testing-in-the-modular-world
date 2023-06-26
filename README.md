@@ -38,7 +38,7 @@ src
 
 ### abstract
 
-The Java Platform Module System (JPMS) introduced with Java 9 poses new challenges when it comes to organizing and executing automated software tests.
+The Java Module System introduced with Java 9 poses new challenges when it comes to organizing and executing automated software tests.
 Finding tests and executing them via the Reflection API is still possible but needs some extra configuration.
 JUnit 5 supports scanning for tests in modules since 5.1 and has a sample project that demonstrates three possible approaches.
 Sources are available at: https://github.com/junit-team/junit5-samples/tree/master/junit5-modular-world
